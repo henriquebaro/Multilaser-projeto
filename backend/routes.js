@@ -4,7 +4,7 @@ const router = express.Router();
 
 // Rota para listar todos os registros
 router.get('/cadastros', (req, res) => {
-  connection.query('SELECT * FROM cadastro', (err, results) => {
+  connection.query('SELECT * FROM cadastro_funcionarios', (err, results) => {
     if (err) {
       console.error('Erro ao buscar os registros:', err);
       res.status(500).json({ error: 'Erro ao buscar os registros' });
@@ -17,7 +17,7 @@ router.get('/cadastros', (req, res) => {
 // Rota para buscar um registro específico pelo ID
 router.get('/cadastros/:id', (req, res) => {
   const { id } = req.params;
-  connection.query('SELECT * FROM cadastro WHERE id = ?', [id], (err, results) => {
+  connection.query('SELECT * FROM cadastro_funcionarios WHERE id = ?', [id], (err, results) => {
     if (err) {
       console.error('Erro ao buscar o registro:', err);
       res.status(500).json({ error: 'Erro ao buscar o registro' });
@@ -34,7 +34,7 @@ router.get('/cadastros/:id', (req, res) => {
 // Rota para criar um novo registro
 router.post('/cadastros', (req, res) => {
   const { nome, email, cpf, endereco, telefone, senha } = req.body;
-  connection.query('INSERT INTO cadastro (nome, email, cpf, endereco, telefone, senha) VALUES (?, ?, ?, ?, ?, ?)', 
+  connection.query('INSERT INTO cadastro_funcionarios (nome, email, cpf,rg, data_nascimento,cep , celular, cargo, departamento, data_admissao;) VALUES (?, ?, ?, ?, ?, ?,?,?,?,?)', 
     [nome, email, cpf, endereco, telefone, senha], (err, result) => {
     if (err) {
       console.error('Erro ao criar o registro:', err);
@@ -49,7 +49,7 @@ router.post('/cadastros', (req, res) => {
 router.put('/cadastros/:id', (req, res) => {
   const { id } = req.params;
   const { nome, email, cpf, endereco, telefone, senha } = req.body;
-  connection.query('UPDATE cadastro SET nome = ?, email = ?, cpf = ?, endereco = ?, telefone = ?, senha = ? WHERE id = ?', 
+  connection.query('UPDATE cadastro_funcionarios SET nome = ?, email = ?, cpf = ?, rg = ?, data_nascimento = ?, cep = ?,celular = ?, cargo = ?, departamento = ?, data_admissao WHERE id = ?', 
     [nome, email, cpf, endereco, telefone, senha, id], (err, result) => {
     if (err) {
       console.error('Erro ao atualizar o registro:', err);
@@ -63,7 +63,7 @@ router.put('/cadastros/:id', (req, res) => {
 // Rota para excluir um registro pelo ID
 router.delete('/cadastros/:id', (req, res) => {
   const { id } = req.params;
-  connection.query('DELETE FROM cadastro WHERE idCadastro = ?', [id], (err, result) => {
+  connection.query('DELETE FROM cadastro_funcionarios WHERE id = ?', [id], (err, result) => {
     if (err) {
       console.error('Erro ao excluir o registro:', err);
       res.status(500).json({ error: 'Erro ao excluir o registro' });

@@ -7,8 +7,13 @@ const CadastroForm = () => {
     nome: '',
     email: '',
     cpf: '',
-    endereco: '',
-    telefone: '',
+    rg: '',
+    data_nascimento: '',
+    cep: '',
+    celular: '',
+    cargo: '',
+    departamento: '',
+    data_admissao: '',
     senha: ''
   });
 
@@ -30,8 +35,13 @@ const CadastroForm = () => {
         nome: '',
         email: '',
         cpf: '',
-        endereco: '',
-        telefone: '',
+        rg: '',
+        data_nascimento: '',
+        cep: '',
+        celular: '',
+        cargo: '',
+        departamento: '',
+        data_admissao: '',
         senha: ''
       });
     } catch (error) {
@@ -44,9 +54,14 @@ const CadastroForm = () => {
     <form onSubmit={handleSubmit}>
       <input type="text" name="nome" placeholder="Nome" value={formData.nome} onChange={handleChange} />
       <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
-      <input type="text" name="cpf" placeholder="CPF" value={formData.cpf} onChange={handleChange} />
-      <input type="text" name="endereco" placeholder="Endereço" value={formData.endereco} onChange={handleChange} />
-      <input type="number" name="telefone" placeholder="Telefone" value={formData.telefone} onChange={handleChange} />
+      <input type="number" name="cpf" placeholder="CPF" value={formData.cpf} onChange={handleChange} />
+      <input type="number" name="rg" placeholder="RG" value={formData.rg} onChange={handleChange} />
+      <input type="date" name="data_nascimento"  value={formData.data_nascimento} onChange={handleChange} />
+      <input type="number" name="cep" placeholder="CEP" value={formData.cep} onChange={handleChange} />
+      <input type="number" name="celular" placeholder="Telefone" value={formData.celular} onChange={handleChange} />
+      <input type="text" name="cargo" placeholder="Cargo" value={formData.cargo} onChange={handleChange} />
+      <input type="text" name="departamento" placeholder="Departamento" value={formData.departamento} onChange={handleChange} />
+      <input type="date" name="data_admissao"  value={formData.data_admissao} onChange={handleChange} />
       <input type="password" name="senha" placeholder="Senha" value={formData.senha} onChange={handleChange} />
       <button type="submit">Salvar</button>
     </form>

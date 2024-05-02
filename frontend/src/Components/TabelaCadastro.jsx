@@ -38,10 +38,15 @@ const TabelaCadastro = () => {
             <th>Nome</th>
             <th>Email</th>
             <th>CPF</th>
-            <th>Endereço</th>
-            <th>Telefone</th>
-            <th>Senha</th>
+            <th>RG</th>
+            <th>Data nascimento</th>
+            <th>CEP</th>
+            <th>Celular</th>
+            <th>Cargo</th>
+            <th>Departamento</th>
+            <th>Data de admissao</th>
             <th>Ação</th>
+            <th>Senha</th>
             {/* Adicione mais colunas, se necessário */}
           </tr>
         </thead>
@@ -52,8 +57,13 @@ const TabelaCadastro = () => {
               <td>{cadastro.nome}</td>
               <td>{cadastro.email}</td>
               <td>{cadastro.cpf}</td>
-              <td>{cadastro.endereco}</td>
-              <td>{cadastro.telefone}</td>
+              <td>{cadastro.rg}</td>
+              <td>{cadastro.data_nascimento}</td>
+              <td>{cadastro.cep}</td>
+              <td>{cadastro.celular}</td>
+              <td>{cadastro.cargo}</td>
+              <td>{cadastro.departamento}</td>
+              <td>{cadastro.data_admissao}</td>
               <td>{cadastro.senha}</td>
               <td>
                 <button

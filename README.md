@@ -1,10 +1,10 @@
-# Sistema de Cadastro de Usuários
+# Sistema de  de Usuários
 
-Este é um sistema de cadastro de usuários desenvolvido em React no frontend e Node.js no backend, utilizando MySQL como banco de dados.
+Este é um sistema de  de usuários desenvolvido em React no frontend e Node.js no backend, utilizando MySQL como banco de dados.
 
 ## Funcionalidades
 
-- **Cadastro de Usuários:** Permite adicionar novos usuários ao sistema.
+- ** de Usuários:** Permite adicionar novos usuários ao sistema.
 - **Listagem de Usuários:** Exibe uma lista de todos os usuários cadastrados.
 - **Atualização de Usuários:** Permite atualizar as informações de um usuário existente.
 - **Exclusão de Usuários:** Permite excluir um usuário do sistema.
@@ -18,13 +18,13 @@ Antes de iniciar, você precisa ter o Node.js e o MySQL instalados na sua máqui
 1. Clone este repositório:
 
    ```bash
-   git clone https://github.com/willreis/sistemaCadastro.git
+   git clone https://github.com/willreis/sistema.git
 
    ```
 
 2. Navegue até o diretório do projeto:
     ````
-   cd sistema-de-cadastro
+   cd sistema-de-
    ````
 
 4. Instale as dependências do frontend e do backend:
@@ -39,17 +39,17 @@ Antes de iniciar, você precisa ter o Node.js e o MySQL instalados na sua máqui
    ````
 
 6. Configuração do Banco de Dados:
-   Execute o script SQL fornecido abaixo para criar a tabela cadastros.
+   Execute o script SQL fornecido abaixo para criar a tabela s.
    ````
-   CREATE TABLE `cadastro` ( 
-     `idCadastro` INT AUTO_INCREMENT NOT NULL,
+   CREATE TABLE `` ( 
+     `id` INT AUTO_INCREMENT NOT NULL,
      `nome` VARCHAR(150) NOT NULL,
      `email` VARCHAR(150) NOT NULL,
      `telefone` VARCHAR(20) NOT NULL,
      `cpf` VARCHAR(20) NOT NULL,
      `endereco` VARCHAR(250) NOT NULL,
      `senha` VARCHAR(45) NOT NULL,
-     CONSTRAINT `PRIMARY` PRIMARY KEY (`idCadastro`)
+     CONSTRAINT `PRIMARY` PRIMARY KEY (`id`)
    );
    ````
 
@@ -76,7 +76,7 @@ Antes de iniciar, você precisa ter o Node.js e o MySQL instalados na sua máqui
 
 ## Estrutura de Arquivos
 
-    sistema-de-cadastro/
+    sistema-de-/
     ├── backend/
     │   ├── db.js
     │   ├── routes.js
@@ -85,10 +85,10 @@ Antes de iniciar, você precisa ter o Node.js e o MySQL instalados na sua máqui
     │   ├── public/
     │   ├── src/
     │   │   ├── components/
-    │   │   │   ├── CadastroForm.jsx
-    │   │   │   ├── CadastroItem.jsx
+    │   │   │   ├── Form.jsx
+    │   │   │   ├── Item.jsx
     |   |   |   ├── Navegacao.jsx
-    │   │   │   └── TabelaCadastro.jsx
+    │   │   │   └── Tabela.jsx
     │   │   ├── App.js
     │   │   ├── index.js
     │   │   └── Routes.js

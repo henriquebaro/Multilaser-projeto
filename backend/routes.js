@@ -33,9 +33,9 @@ router.get('/cadastros/:id', (req, res) => {
 
 // Rota para criar um novo registro
 router.post('/cadastros', (req, res) => {
-  const { nome, email, cpf, endereco, telefone, senha } = req.body;
-  connection.query('INSERT INTO cadastro_funcionarios (nome, email, cpf,rg, data_nascimento,cep , celular, cargo, departamento, data_admissao;) VALUES (?, ?, ?, ?, ?, ?,?,?,?,?)', 
-    [nome, email, cpf, endereco, telefone, senha], (err, result) => {
+  const { nome, email, cpf, rg, data_nascimento,cep,celular,cargo,departamento,data_admissao, senha } = req.body;
+  connection.query('INSERT INTO cadastro_funcionarios (nome, email, cpf,rg, data_nascimento,cep , celular, cargo, departamento, data_admissao) VALUES (?, ?, ?, ?, ?, ?,?,?,?,?)', 
+    [nome, email, cpf, rg, data_nascimento,cep,celular,cargo,departamento,data_admissao, senha], (err, result) => {
     if (err) {
       console.error('Erro ao criar o registro:', err);
       res.status(500).json({ error: 'Erro ao criar o registro' });
@@ -48,9 +48,9 @@ router.post('/cadastros', (req, res) => {
 // Rota para atualizar um registro existente pelo ID
 router.put('/cadastros/:id', (req, res) => {
   const { id } = req.params;
-  const { nome, email, cpf, endereco, telefone, senha } = req.body;
-  connection.query('UPDATE cadastro_funcionarios SET nome = ?, email = ?, cpf = ?, rg = ?, data_nascimento = ?, cep = ?,celular = ?, cargo = ?, departamento = ?, data_admissao WHERE id = ?', 
-    [nome, email, cpf, endereco, telefone, senha, id], (err, result) => {
+  const { nome, email, cpf, rg, data_nascimento,cep,celular,cargo,departamento,data_admissao, senha } = req.body;
+  connection.query('UPDATE cadastro_funcionarios SET nome = ?, email = ?, cpf = ?, rg = ?, data_nascimento = ?, cep = ?,celular = ?, cargo = ?, departamento = ?, data_admissao = ?, WHERE id = ?', 
+    [nome, email, cpf, rg, data_nascimento,cep,celular,cargo,departamento,data_admissao,senha, id], (err, result) => {
     if (err) {
       console.error('Erro ao atualizar o registro:', err);
       res.status(500).json({ error: 'Erro ao atualizar o registro' });

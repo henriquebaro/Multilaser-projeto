@@ -8,7 +8,9 @@ const Produtos_form = () => {
       preco: '',
       
     });
-  
+    const handleReload = () => {
+      window.location.reload();
+    };
     const handleChange = (e) => {
       const { name, value } = e.target;
       setFormData({
@@ -42,7 +44,7 @@ const Produtos_form = () => {
         <input type="text" name="descricao" placeholder="descricao produto" value={formData.descricao} onChange={handleChange} />
         <input type="number" name="preco" placeholder="preco" value={formData.preco} onChange={handleChange} />
        
-        <button type="submit">Salvar</button>
+        <button onClick={handleReload} type="submit">Salvar</button>
       </form>
     );
   };

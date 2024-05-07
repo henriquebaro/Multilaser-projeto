@@ -24,7 +24,9 @@ const CadastroForm = () => {
       [name]: value
     });
   };
-
+  const handleReload = () => {
+    window.location.reload();
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -63,7 +65,7 @@ const CadastroForm = () => {
       <input type="text" name="departamento" placeholder="Departamento" value={formData.departamento} onChange={handleChange} />
       <input type="date" name="data_admissao"  value={formData.data_admissao} onChange={handleChange} />
       <input type="password" name="senha" placeholder="Senha" value={formData.senha} onChange={handleChange} />
-      <button type="submit">Salvar</button>
+      <button onClick={handleReload} type="submit">Salvar</button>
     </form>
   );
 };

@@ -13,13 +13,17 @@ const Header = () => {
             <Link to="/contato">Contato</Link>
           </li>
           <li>
-            <Link to="/cadastro">Cadastro</Link>
+            <Link to="/cadastro">Cadastro funcionarios</Link>
           </li>
-          <li>
-            <Link to="/listaUsuarios">Lista de Usuários</Link>
-          </li>
+      
           <li>
             <Link to="/produtos">produtos</Link>
+          </li>
+          <li>
+            <Link to="/clientes">Cadastro clientes</Link>
+          </li>
+          <li>
+            <Link to="/fornecedores">fornecedores</Link>
           </li>
         </ul>
       </nav>

@@ -3,7 +3,7 @@ import React from 'react';
 const CadastroItem = ({ cadastro, onDelete }) => {
   return (
     <tr>
-      <td>{cadastro.id}</td>
+      <td>{cadastro.id_funcionarios}</td>
       <td>{cadastro.nome}</td>
       <td>{cadastro.email}</td>
       <td>{cadastro.cpf}</td>
@@ -15,7 +15,7 @@ const CadastroItem = ({ cadastro, onDelete }) => {
       <td>{cadastro.departamento}</td>
       <td>{cadastro.data_admissao}</td>
       <td>
-        <button onClick={() => onDelete(cadastro.id)}>Excluir</button>
+        <button onClick={() => onDelete(cadastro.id_funcionarios)}>Excluir</button>
       </td>
     </tr>
   );

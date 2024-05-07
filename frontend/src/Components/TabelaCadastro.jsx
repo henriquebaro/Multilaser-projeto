@@ -17,9 +17,9 @@ const TabelaCadastro = () => {
     fetchData();
   }, []);
 
-  const handleExcluirUsuario = async (idCadastro) => {
+  const handleExcluirUsuario = async (id_funcionarios) => {
     try {
-      await axios.delete(`http://localhost:3001/cadastros/${idCadastro}`);
+      await axios.delete(`http://localhost:3001/cadastros/${id_funcionarios}`);
       // Atualiza a lista de cadastros após a exclusão
       const { data } = await axios.get("http://localhost:3001/cadastros");
       setCadastros(data);
@@ -52,8 +52,8 @@ const TabelaCadastro = () => {
         </thead>
         <tbody>
           {cadastros.map((cadastro) => (
-            <tr key={cadastro.idCadastro}>
-              <td>{cadastro.idCadastro}</td>
+            <tr key={cadastro.id_funcionarios}>
+              <td>{cadastro.id_funcionarios}</td>
               <td>{cadastro.nome}</td>
               <td>{cadastro.email}</td>
               <td>{cadastro.cpf}</td>
@@ -68,7 +68,7 @@ const TabelaCadastro = () => {
               <td>
                 <button
                   variant="danger"
-                  onClick={() => handleExcluirUsuario(cadastro.idCadastro)}
+                  onClick={() => handleExcluirUsuario(cadastro.id_funcionarios)}
                 >
                   Excluir
                 </button>

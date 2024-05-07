@@ -50,7 +50,7 @@ const Tabelaprodutos = () => {
               <td>{cadastro.nomeProduto}</td>
               <td>{cadastro.quantidade}</td>
               <td>{cadastro.descricao}</td>
-              <td>{cadastro.preco}</td>
+              <td> R${cadastro.preco}</td>
              
               <td>
                 <button

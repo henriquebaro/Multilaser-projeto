@@ -54,7 +54,7 @@ router.put('/cadastros/:id_funcionarios', (req, res) => {
     if (err) {
       console.error('Erro ao atualizar o registro:', err);
       res.status(500).json({ error: 'Erro ao atualizar o registro' });
-      return;
+      return; 
     }
     res.json({ message: 'Registro atualizado com sucesso' });
   });
@@ -144,3 +144,73 @@ router.delete('/produtos/:idProdutos', (req, res) => {
 });
 
 module.exports = router;
+/////////////////////// clientes ////////////////////////////////////////
+router.get('/clientes', (req, res) => {
+  connection.query('SELECT * FROM cadastro_clientes', (err, results) => {
+    if (err) {
+      console.error('Erro ao buscar os registros:', err);
+      res.status(500).json({ error: 'Erro ao buscar os registros' });
+      return;
+    }
+    res.json(results);
+  });
+});
+
+// Rota para buscar um registro específico pelo id_funcionarios
+router.get('/clientes/:id', (req, res) => {
+  const { id } = req.params;
+  connection.query('SELECT * FROM cadastro_clientes WHERE id = ?', [id], (err, results) => {
+    if (err) {
+      console.error('Erro ao buscar o registro:', err);
+      res.status(500).json({ error: 'Erro ao buscar o registro' });
+      return;
+    }
+    if (results.length === 0) {
+      res.status(404).json({ error: 'Registro não encontrado' });
+      return;
+    }
+    res.json(results[0]);
+  });
+});
+// Rota para criar um novo registro
+router.post('/clientes', (req, res) => {
+  const { nome, email, cpf,  data_nascimento,cep,celular, senha } = req.body;
+  connection.query('INSERT INTO cadastro_clientes (nome, email, cpf, data_nascimento,cep , celular) VALUES (?, ?, ?, ?, ?,?)', 
+    [nome, email, cpf,  data_nascimento,cep,celular, senha], (err, result) => {
+    if (err) {
+      console.error('Erro ao criar o registro:', err);
+      res.status(500).json({ error: 'Erro ao criar o registro' });
+      return;
+    }
+    res.status(201).json({ message: 'Registro criado com sucesso', id: result.insertid });
+  });
+});
+
+// Rota para atualizar um registro existente pelo id_funcionarios
+router.put('/clientes/:id', (req, res) => {
+  const { id } = req.params;
+  const { nome, email, cpf,  data_nascimento,cep,celular, senha } = req.body;
+  connection.query('UPDATE cadastro_clientes SET nome = ?, email = ?, cpf = ?,   data_nascimento = ?, cep = ?,celular = ?, cargo = ?, WHERE id = ?', 
+    [nome, email, cpf, data_nascimento,cep,celular,senha, id ], (err, result) => {
+    if (err) {
+      console.error('Erro ao atualizar o registro:', err);
+      res.status(500).json({ error: 'Erro ao atualizar o registro' });
+      return;
+    }
+    res.json({ message: 'Registro atualizado com sucesso' });
+  });
+});
+
+// Rota para excluir um registro pelo id_funcionarios
+router.delete('/clientes/:id', (req, res) => {
+  const { id } = req.params;
+  connection.query('DELETE FROM cadastro_clientes WHERE id = ?', [id], (err, result) => {
+    if (err) {
+      console.error('Erro ao excluir o registro:', err);
+      res.status(500).json({ error: 'Erro ao excluir o registro' });
+      return;
+    }
+    res.json({ message: 'Registro excluído com sucesso' });
+  });
+});
+

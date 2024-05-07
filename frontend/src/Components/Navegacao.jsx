@@ -22,6 +22,9 @@ const Header = () => {
           <li>
             <Link to="/clientes">Cadastro clientes</Link>
           </li>
+          <li>
+            <Link to="/fornecedores">fornecedores</Link>
+          </li>
         </ul>
       </nav>
     </header>

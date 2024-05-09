@@ -1,7 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import '../CSS/cadastrofunc.css'
+function converterData(dataMySQL) {
+  // Divide a data MySQL em partes
+  var partesHora = dataMySQL.split('T');
 
+  var partesData = partesHora[0].split('-');
+  
+  // Formata a data no padrão brasileiro
+  var dataFormatada = partesData[2] + '/' + partesData[1] + '/' + partesData[0];
+  
+  return dataFormatada;
+}
 const TabelaCadastro = () => {
   const [cadastros, setCadastros] = useState([]);
 
@@ -59,12 +69,12 @@ const TabelaCadastro = () => {
               <td>{cadastro.email}</td>
               <td>{cadastro.cpf}</td>
               <td>{cadastro.rg}</td>
-              <td>{cadastro.data_nascimento}</td>
+              <td>{converterData(cadastro.data_nascimento)}</td>
               <td>{cadastro.cep}</td>
               <td>{cadastro.celular}</td>
               <td>{cadastro.cargo}</td>
               <td>{cadastro.departamento}</td>
-              <td>{cadastro.data_admissao}</td>
+              <td>{converterData(cadastro.data_admissao)}</td>
               <td>{cadastro.senha}</td>
               <td>
                 <button

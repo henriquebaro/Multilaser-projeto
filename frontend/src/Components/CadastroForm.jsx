@@ -108,7 +108,7 @@ const CadastroForm = () => {
                <input type="text" name="departamento" value={formData.departamento} onChange={handleChange} /></Col>
 
                <Col md={3} >
-               <p>Senh</p>
+               <p>Senha</p>
                <input type="password" name="senha" value={formData.senha} onChange={handleChange} /></Col>
 
                <Col md={3} >

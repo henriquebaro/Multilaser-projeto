@@ -7,6 +7,7 @@ import Modal from 'react-bootstrap/Modal';
 import Pedidos_form from '../Components/Pedidos_form';
 import Tabela_pedidos from '../Components/Pedidos_tabela';
 
+
 function Produto() {
   const [show, setShow] = useState(false);
 

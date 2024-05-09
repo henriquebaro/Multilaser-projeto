@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../css/Produtos.css";
-
+import Button from 'react-bootstrap/Button';
 
 
 
@@ -57,12 +57,8 @@ const Tabelaprodutos = () => {
               <td> R${cadastro.preco}</td>
              
               <td>
-                <button
-                  variant="danger"
-                  onClick={() => handleExcluirUsuario(cadastro.idProdutos)}
-                >
-                  Excluir
-                </button>
+              <Button onClick={() => handleExcluirUsuario(cadastro.idProdutos)} className="botaotabela">Excluir</Button>
+               
               </td>
               {/* Renderizar outras colunas, se necessário */}
             </tr>

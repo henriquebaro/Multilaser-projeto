@@ -12,10 +12,14 @@ import Navegacao from "./Components/Navegacao";
 const App = () => {
   return (
     <>
+    <ChakraProvider>
+ 
+
       <Router>
         <Navegacao />
         <Rotas />
-      </Router>
+      </Router>    
+      </ChakraProvider>
     </>
   );
 };

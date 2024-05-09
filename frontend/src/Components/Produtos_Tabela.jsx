@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "../css/Produtos.css";
+
+
+
 
 const Tabelaprodutos = () => {
   const [cadastros, setCadastros] = useState([]);

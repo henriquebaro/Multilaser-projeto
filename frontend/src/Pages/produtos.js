@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Pedidos_form from '../Components/Pedidos_form';
-import Tabela_pedidos from '../Components/Pedidos_tabela'
+import Tabela_pedidos from '../Components/Pedidos_tabela';
 
 function Produto() {
   const [show, setShow] = useState(false);
@@ -14,29 +14,28 @@ function Produto() {
   const handleShow = () => setShow(true);
   return (
     <>
-    <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
-      </Button>
-
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Tabela Produtos</Modal.Title>
         </Modal.Header>
         <Modal.Body>   <Tabelaprodutos/></Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+          Fechar
           </Button>
           <Button variant="primary" onClick={handleClose}>
-            Save Changes
+            Salvar Dados
           </Button>
         </Modal.Footer>
       </Modal>
       <h1>adicione produtos</h1>
      <Produtos_form/>
+     <Button variant="primary" onClick={handleShow}>
+        Tabela Produtos
+      </Button>
      <h1>
       faça um pedido
-     </h1>
+     </h1>  
   <Pedidos_form/>
   {/* <Tabela_pedidos/> */}
     </>

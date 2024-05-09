@@ -5,6 +5,8 @@ import '../css/cadastrofunc.css'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { Box } from "@chakra-ui/react"
+import Button from 'react-bootstrap/Button';
 
 const CadastroForm = () => {
   const [formData, setFormData] = useState({
@@ -59,7 +61,9 @@ const CadastroForm = () => {
   return (
     <>
  <center>
-  <form className='formcadastro' onSubmit={handleSubmit}>
+  
+  <Box className='box' boxShadow='2xl' p='6' rounded='xl' bg='white'>
+    <form className='formcadastro' onSubmit={handleSubmit}>
           <Container className='footer'>
               <Row className='hori1'>
                 <Col md={3} className='colhori'>
@@ -124,9 +128,15 @@ const CadastroForm = () => {
                 <input className='datanasci' type="date" name="data_nascimento"  value={formData.data_nascimento} onChange={handleChange} /></Col>
 
                 <Col md={3} className='salvar'  >
-                <button onClick={handleReload} type="submit">Salvar</button></Col>
-              </Row>
-  </Container>
+                <Button type="submit" onClick={handleReload} className='botao' variant="outline-light">Salvar</Button>{' '}</Col>
+               
+                
+                
+              </Row> 
+               </Container>   
+              </form>
+  </Box>
+
     
       
       
@@ -145,7 +155,7 @@ const CadastroForm = () => {
       
 
      
-    </form>
+ 
  </center>
     
     </>

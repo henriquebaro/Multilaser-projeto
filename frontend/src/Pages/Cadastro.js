@@ -2,7 +2,7 @@
 import React from "react";
 import CadastroForm from "../Components/CadastroForm";
 import TabelaCadastro from "../Components/TabelaCadastro";
-import '../CSS/cadastrofunc.css'
+import '../css/cadastrofunc.css'
 
 const Cadastro = () => {
   

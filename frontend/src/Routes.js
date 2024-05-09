@@ -4,7 +4,7 @@ import Home from "./Pages/Home";
 import Contato from "./Pages/Contato";
 import Cadastro from "./Pages/Cadastro";
 import Fornecedores from "./Pages/fornecedores";
-import Produto from "./Pages/Produtos";
+import Produto from "./Pages/produtos";
 import Clientes from "./Pages/Clientes";
 const Rotas = () => {
   return (

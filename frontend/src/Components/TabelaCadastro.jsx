@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import '../CSS/cadastrofunc.css'
+import '../css/cadastrofunc.css'
 function converterData(dataMySQL) {
   // Divide a data MySQL em partes
   var partesHora = dataMySQL.split('T');

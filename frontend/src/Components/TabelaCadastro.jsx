@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import '../CSS/cadastrofunc.css'
 
 const TabelaCadastro = () => {
   const [cadastros, setCadastros] = useState([]);
@@ -30,7 +31,7 @@ const TabelaCadastro = () => {
   };
 
   return (
-    <div>
+    <div className="tabelacadastrofunc">
       <table border={2} cellPadding={5} cellSpacing={5}>
         <thead>
           <tr>

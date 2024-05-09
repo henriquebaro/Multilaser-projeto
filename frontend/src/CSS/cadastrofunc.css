@@ -1,4 +1,59 @@
-.tabelacadastrofunc {
-   align-items: center;
-   text-align: center;
+.hori1 {
+    padding-bottom: 20px !important;
+    justify-content: center;
+
+}
+
+.hori2 {
+    padding-bottom: 20px !important;
+    justify-content: center;
+  
+}
+
+.hori3 {
+    padding-bottom: 20px !important;
+    justify-content: center;
+}
+
+.hori3 {
+    padding-bottom: 20px !important;
+    justify-content: center;
+}
+
+.hori4 {
+    padding-bottom: 20px !important;
+    justify-content: center;
+}
+
+.h2 {
+    padding-bottom: 20px;
+}
+
+p {
+    margin: 0%;
+    text-align: left;
+    padding-left: 40px;
+}
+
+.salvar {
+    padding-top: 20px;
+}
+
+input {
+    border-radius: 10px;
+    height: 35px;
+}
+
+.dataad {
+    width: 190px;
+    height: 30px;
+}
+
+.datanasci {
+    width: 190px;
+    height: 30px;
+}
+
+body {
+    background-color: rgb(133, 161, 186);
 }

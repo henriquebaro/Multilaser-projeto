@@ -1,6 +1,10 @@
 // CadastroForm.jsx
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../CSS/cadastrofunc.css'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const CadastroForm = () => {
   const [formData, setFormData] = useState({
@@ -53,20 +57,99 @@ const CadastroForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="nome" placeholder="Nome" value={formData.nome} onChange={handleChange} />
-      <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
-      <input type="number" name="cpf" placeholder="CPF" value={formData.cpf} onChange={handleChange} />
-      <input type="number" name="rg" placeholder="RG" value={formData.rg} onChange={handleChange} />
-      <input type="date" name="data_nascimento"  value={formData.data_nascimento} onChange={handleChange} />
-      <input type="number" name="cep" placeholder="CEP" value={formData.cep} onChange={handleChange} />
-      <input type="number" name="celular" placeholder="Telefone" value={formData.celular} onChange={handleChange} />
-      <input type="text" name="cargo" placeholder="Cargo" value={formData.cargo} onChange={handleChange} />
-      <input type="text" name="departamento" placeholder="Departamento" value={formData.departamento} onChange={handleChange} />
-      <input type="date" name="data_admissao"  value={formData.data_admissao} onChange={handleChange} />
-      <input type="password" name="senha" placeholder="Senha" value={formData.senha} onChange={handleChange} />
-      <button onClick={handleReload} type="submit">Salvar</button>
+    <>
+ <center>
+  <form className='formcadastro' onSubmit={handleSubmit}>
+          <Container className='footer'>
+              <Row className='hori1'>
+                <Col md={3} className='colhori'>
+                <p>Nome</p>
+                <input type="text" name="nome"  value={formData.nome} onChange={handleChange} /></Col>
+
+                <Col  md={3} >
+                <p>Email</p>
+                <input  type="email" name="email" value={formData.email} onChange={handleChange} /></Col>
+
+                <Col  md={3} >
+                <p>CPF</p>
+                <input type="number" name="cpf"  value={formData.cpf} onChange={handleChange} /></Col>
+
+              </Row>
+      
+       
+      
+
+               <Row className='hori2'>
+               <Col md={3} className='colhori'>
+               <p>RG</p>
+               <input type="number" name="rg" value={formData.rg} onChange={handleChange} /></Col>
+
+               <Col md={3} >
+               <p>Telefone</p>
+               <input type="number" name="celular" value={formData.celular} onChange={handleChange} /></Col>
+  
+               <Col md={3} >
+               <p>Cargo</p>
+               <input type="text" name="cargo" value={formData.cargo} onChange={handleChange} /></Col>
+      
+               
+            
+               </Row>
+      
+     
+
+              <Row className='hori3'>
+               <Col md={3} >
+               <p>Departamento</p>
+               <input type="text" name="departamento" value={formData.departamento} onChange={handleChange} /></Col>
+
+               <Col md={3} >
+               <p>Senh</p>
+               <input type="password" name="senha" value={formData.senha} onChange={handleChange} /></Col>
+
+               <Col md={3} >
+               <p>CEP</p>
+                <input type="number" name="cep" value={formData.cep} onChange={handleChange} /></Col>
+      
+              
+              </Row>
+
+              <Row className='hori4'>
+                <Col  md={3} >
+                <p>Data de admissão</p>
+                <input className='dataad' type="date" name="data_admissao"  value={formData.data_admissao} onChange={handleChange} /></Col>
+                
+                <Col md={3} >
+                <p>Data de nascimento </p>
+                <input className='datanasci' type="date" name="data_nascimento"  value={formData.data_nascimento} onChange={handleChange} /></Col>
+
+                <Col md={3} className='salvar'  >
+                <button onClick={handleReload} type="submit">Salvar</button></Col>
+              </Row>
+  </Container>
+    
+      
+      
+
+  
+      
+
+      
+
+      
+    
+      
+    
+      
+
+      
+
+     
     </form>
+ </center>
+    
+    </>
+    
   );
 };
 

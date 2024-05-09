@@ -2,18 +2,25 @@
 import React from "react";
 import CadastroForm from "../Components/CadastroForm";
 import TabelaCadastro from "../Components/TabelaCadastro";
+import '../CSS/cadastrofunc.css'
 
 const Cadastro = () => {
   
   return (
     <>
       <div>
-        <h2>Página Cadastro</h2>
+       
+       
+             <center>
+            <h2 className="h2">CADASTRE-SE</h2>
+             </center>
+        
       
       
              <CadastroForm />
-           
-        
+           <br/>
+           <br/>
+     
         <TabelaCadastro />
       </div>
     </>

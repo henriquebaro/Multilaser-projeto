@@ -285,9 +285,25 @@ router.delete('/fornecedores/:id_fornecedor', (req, res) => {
  /////////////////////////////// pedidos //////////////////////////////////////
 
 
+// router.post('/pedidos', (req, res) => {
+//   const { id, idProdutos } = req.body;
+//   connection.query('INSERT INTO pedidos (id, idProduto) VALUES (?, ?)', [id, idProdutos], (err, result) => {
+//     if (err) {
+//       console.error('Erro ao criar o pedido:', err);
+//       res.status(500).json({ error: 'Erro ao criar o pedido' });
+//       return;
+//     }
+//     res.status(201).json({ message: 'Pedido criado com sucesso', id: result.insertId });
+//   });
+// });
+///////////////////////////////// teste ///////////////////////
+// Rota para adicionar um pedido
+// Rota para criar um novo pedido
 router.post('/pedidos', (req, res) => {
   const { id, idProdutos } = req.body;
-  connection.query('INSERT INTO pedidos (id, idProduto) VALUES (?, ?)', [id, idProdutos], (err, result) => {
+  const values = [[id, idProdutos]]; // Adiciona um único array com o ID do cliente e o ID do produto
+  connection.query('INSERT INTO pedidos (id, idProdutos) VALUES ?', 
+    [values], (err, result) => {
     if (err) {
       console.error('Erro ao criar o pedido:', err);
       res.status(500).json({ error: 'Erro ao criar o pedido' });
@@ -296,3 +312,4 @@ router.post('/pedidos', (req, res) => {
     res.status(201).json({ message: 'Pedido criado com sucesso', id: result.insertId });
   });
 });
+

@@ -5,7 +5,7 @@ function Pedidos(){
     return(
         <>
         <h1> adicione um novo pedido</h1>
-        {/* <Pedidos_form/> */}
+         {/* <Pedidos_form/>  */}
         <Tabela_pedidos/>
         
         </>

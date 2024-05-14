@@ -283,19 +283,16 @@ router.delete('/fornecedores/:id_fornecedor', (req, res) => {
   });
 });
  /////////////////////////////// pedidos //////////////////////////////////////
- router.get('/dadosCombinados', (req, res) => {
-  const query = `
-    SELECT pedidos.id AS id_pedido, clientes.nome AS nome_cliente, produtos.nome AS nome_produto, pedidos.quantidade, pedidos.data_pedido
-    FROM pedidos
-    INNER JOIN clientes ON pedidos.id_cliente = clientes.id
-    INNER JOIN produtos ON pedidos.id_produto = produtos.id
-  `;
-  connection.query(query, (error, results) => {
-    if (error) {
-      console.error('Erro ao buscar dados combinados:', error);
-      res.status(500).json({ error: 'Erro ao buscar dados combinados' });
+
+
+router.post('/pedidos', (req, res) => {
+  const { id, idProdutos } = req.body;
+  connection.query('INSERT INTO pedidos (id, idProduto) VALUES (?, ?)', [id, idProdutos], (err, result) => {
+    if (err) {
+      console.error('Erro ao criar o pedido:', err);
+      res.status(500).json({ error: 'Erro ao criar o pedido' });
       return;
     }
-    res.json(results);
+    res.status(201).json({ message: 'Pedido criado com sucesso', id: result.insertId });
   });
 });

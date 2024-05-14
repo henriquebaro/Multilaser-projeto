@@ -52,24 +52,24 @@ const Produtos_form = () => {
             <Row className='hori1'>
             
             <Col md={4}>
-            <p>Nome</p>
+            <p className='legenda'>Nome</p>
             <input type="text" name="nomeProduto"  value={formData.nomeProduto} onChange={handleChange} />
             </Col>
 
             <Col md={4}>
-            <p>Quantidade</p>
+            <p className='legenda'>Quantidade</p>
             <input type="number" name="quantidade"  value={formData.quantidade} onChange={handleChange} />
             </Col>
             </Row>
 
             <Row className='hori2'>
               <Col md={4}>
-              <p>Descrição</p>
+              <p className='legenda'>Descrição</p>
               <input type="text" name="descricao" value={formData.descricao} onChange={handleChange} />
               </Col>
 
               <Col md={4}>
-              <p>Preço</p>
+              <p className='legenda'>Preço</p>
               <input type="number" name="preco"  value={formData.preco} onChange={handleChange} />
               </Col>
             </Row>

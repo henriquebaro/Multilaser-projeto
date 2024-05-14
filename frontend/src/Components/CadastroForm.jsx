@@ -67,15 +67,15 @@ const CadastroForm = () => {
           <Container className='footer'>
               <Row className='hori1'>
                 <Col md={3} className='colhori'>
-                <p>Nome</p>
+                <p className='legendacadas'>Nome</p>
                 <input type="text" name="nome"  value={formData.nome} onChange={handleChange} /></Col>
 
-                <Col  md={3} >
-                <p>Email</p>
+                <Col   md={3} >
+                <p className='legendacadas'>Email</p>
                 <input  type="email" name="email" value={formData.email} onChange={handleChange} /></Col>
 
                 <Col  md={3} >
-                <p>CPF</p>
+                <p className='legendacadas'>CPF</p>
                 <input type="number" name="cpf"  value={formData.cpf} onChange={handleChange} /></Col>
 
               </Row>
@@ -85,15 +85,15 @@ const CadastroForm = () => {
 
                <Row className='hori2'>
                <Col md={3} className='colhori'>
-               <p>RG</p>
+               <p className='legendacadas'>RG</p>
                <input type="number" name="rg" value={formData.rg} onChange={handleChange} /></Col>
 
                <Col md={3} >
-               <p>Telefone</p>
+               <p className='legendacadas'>Telefone</p>
                <input type="number" name="celular" value={formData.celular} onChange={handleChange} /></Col>
   
                <Col md={3} >
-               <p>Cargo</p>
+               <p className='legendacadas'>Cargo</p>
                <input type="text" name="cargo" value={formData.cargo} onChange={handleChange} /></Col>
       
                
@@ -104,15 +104,15 @@ const CadastroForm = () => {
 
               <Row className='hori3'>
                <Col md={3} >
-               <p>Departamento</p>
+               <p className='legendacadas'>Departamento</p>
                <input type="text" name="departamento" value={formData.departamento} onChange={handleChange} /></Col>
 
                <Col md={3} >
-               <p>Senha</p>
+               <p className='legendacadas'>Senha</p>
                <input type="password" name="senha" value={formData.senha} onChange={handleChange} /></Col>
 
                <Col md={3} >
-               <p>CEP</p>
+               <p className='legendacadas'>CEP</p>
                 <input type="number" name="cep" value={formData.cep} onChange={handleChange} /></Col>
       
               
@@ -120,11 +120,11 @@ const CadastroForm = () => {
 
               <Row className='hori4'>
                 <Col  md={3} >
-                <p>Data de admissão</p>
+                <p className='legendacadas'>Data de admissão</p>
                 <input className='dataad' type="date" name="data_admissao"  value={formData.data_admissao} onChange={handleChange} /></Col>
                 
                 <Col md={3} >
-                <p>Data de nascimento </p>
+                <p className='legendacadas'>Data de nascimento </p>
                 <input className='datanasci' type="date" name="data_nascimento"  value={formData.data_nascimento} onChange={handleChange} /></Col>
 
                 <Col md={3} className='salvar'  >

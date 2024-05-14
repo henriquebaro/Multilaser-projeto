@@ -6,3 +6,50 @@ th {
 .botaotabela {
     background-color: royalblue;
 }
+
+.hori1 {
+    padding-bottom: 20px !important;
+    justify-content: center;
+}
+
+.hori2 {
+    padding-bottom: 20px !important;
+    justify-content: center;
+}
+
+.legenda {
+    margin: 0%;
+    text-align: left;
+   color: white;
+   padding-left: 30px;
+}
+
+.botao {
+    width: 150px;
+    text-align: center;
+    box-shadow: 300px color(srgb rgb(0, 0, 0) ) !important;
+}
+
+.box {
+    background-color: #2B63F0 !important;
+    width: 800px;
+    align-items: center;
+    justify-content: center !important;
+    
+}
+
+.chakra-ui-light {
+    background-color: white;
+    
+}
+
+.h1produtos {
+    padding-bottom: 20px;
+}
+
+
+.botaotabela {
+    position: fixed;
+    bottom: 20px; /* Distância do fundo da tela */
+    right: 20px; /* Distância da direita da tela */
+}

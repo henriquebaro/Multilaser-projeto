@@ -1,0 +1,30 @@
+.legendacadasforn {
+    margin: 0%;
+    text-align: left;
+    color: white;
+    padding-left: 30px;
+}
+
+.fornbotao {
+    align-items: center !important;
+    width: 150px;
+    text-align: center;
+    box-shadow: 300px color(srgb rgb(0, 0, 0) ) !important;
+}
+
+.salvar {
+    padding-top: 20px;
+}
+
+.h2 {
+    padding-bottom: 20px;
+}
+
+.box {
+    background-color: #2B63F0 !important;
+    width: 900px;
+}
+
+.h2 {
+    padding-bottom: 20px;
+}

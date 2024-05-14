@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../css/fornecedorform.css'
+import { Box } from '@chakra-ui/react';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 
 const Fornecedor_form = () => {
   const [formData, setFormData] = useState({
@@ -40,14 +46,56 @@ const Fornecedor_form = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="nome_empresa" placeholder="Empresa" value={formData.nome_empresa} onChange={handleChange} />
-      <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
-      <input type="number" name="cnpj" placeholder="CNPJ" value={formData.cnpj} onChange={handleChange} />
-      <input type="number" name="cep" placeholder="CEP" value={formData.cep} onChange={handleChange} />
-      <input type="number" name="telefone" placeholder="Telefone" value={formData.telefone} onChange={handleChange} />
-     <button onClick={handleReload} type="submit">Salvar</button>
+   <center>
+      <Box className='box' boxShadow='2xl' p='6' rounded='xl' bg='white'> 
+      <center>
+ <form onSubmit={handleSubmit}>
+        <Container>
+          <Row>
+            <Col md={4}>
+            <p className='legendacadasforn'>Empresa</p>
+            <input type="text" name="nome_empresa"  value={formData.nome_empresa} onChange={handleChange} />
+            </Col>
+
+            <Col md={4}>
+            <p className='legendacadasforn'>Email</p>
+            <input type="email" name="email"  value={formData.email} onChange={handleChange} />
+            </Col>
+
+            <Col md={4}>
+            <p className='legendacadasforn'>CNPJ</p>
+            <input type="number" name="cnpj"  value={formData.cnpj} onChange={handleChange} />
+            </Col>
+
+          </Row>
+        
+         <Row>
+          <Col md={4} className='CEP'>
+          <p className='legendacadasforn'>CEP</p>
+          <input  type="number" name="cep"  value={formData.cep} onChange={handleChange} />
+          </Col>
+
+          <Col md={4}>
+          <p className='legendacadasforn'>Telefone</p>
+          <input type="number" name="telefone" value={formData.telefone} onChange={handleChange} />
+          </Col>
+
+          <Col md={4} className='salvar'>
+          <Button type="submit" onClick={handleReload} className='fornbotao' variant="outline-light">Salvar</Button>{' '}
+          </Col>
+         </Row>
+      </Container>
+      
+      
+      
+     
     </form>
+      </center>
+     
+    
+      </Box>
+    </center>
+    
   );
 };
 

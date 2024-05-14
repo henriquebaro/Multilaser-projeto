@@ -28,9 +28,12 @@ function Produto() {
           </Button>
         </Modal.Footer>
       </Modal>
-      <h1>adicione produtos</h1>
+      <center>
+        <h1 className="h1produtos">ADICIONE OS PRODUTOS</h1>
+      </center>
+      
      <Produtos_form/>
-     <Button variant="primary" onClick={handleShow}>
+     <Button className="botaotabela" variant="primary" onClick={handleShow}>
         Tabela Produtos
       </Button>
  

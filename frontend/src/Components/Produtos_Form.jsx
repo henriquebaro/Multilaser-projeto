@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import { Box } from "@chakra-ui/react"
+import Button from 'react-bootstrap/Button';
+
 const Produtos_form = () => {
     const [formData, setFormData] = useState({
       nomeProduto: '',
@@ -38,14 +44,47 @@ const Produtos_form = () => {
     };
   
     return (
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="nomeProduto" placeholder="Nome" value={formData.nomeProduto} onChange={handleChange} />
-        <input type="number" name="quantidade" placeholder="QTD" value={formData.quantidade} onChange={handleChange} />
-        <input type="text" name="descricao" placeholder="descricao produto" value={formData.descricao} onChange={handleChange} />
-        <input type="number" name="preco" placeholder="preco" value={formData.preco} onChange={handleChange} />
-       
-        <button onClick={handleReload} type="submit">Salvar</button>
+     
+ <center>
+   <Box className='box' boxShadow='2xl' p='6' rounded='xl' bg='white'>
+        <form onSubmit={handleSubmit}>
+          <Container>
+            <Row className='hori1'>
+            
+            <Col md={4}>
+            <p className='legenda'>Nome</p>
+            <input type="text" name="nomeProduto"  value={formData.nomeProduto} onChange={handleChange} />
+            </Col>
+
+            <Col md={4}>
+            <p className='legenda'>Quantidade</p>
+            <input type="number" name="quantidade"  value={formData.quantidade} onChange={handleChange} />
+            </Col>
+            </Row>
+
+            <Row className='hori2'>
+              <Col md={4}>
+              <p className='legenda'>Descrição</p>
+              <input type="text" name="descricao" value={formData.descricao} onChange={handleChange} />
+              </Col>
+
+              <Col md={4}>
+              <p className='legenda'>Preço</p>
+              <input type="number" name="preco"  value={formData.preco} onChange={handleChange} />
+              </Col>
+            </Row>
+          </Container>
+        
+        
+     
+        <Button variant="outline-light" className='botao' onClick={handleReload} type="submit">Salvar</Button>{' '}
+     
+        
       </form>
+      </Box>
+       </center>
+      
+      
     );
   };
   

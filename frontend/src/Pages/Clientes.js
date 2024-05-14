@@ -1,14 +1,43 @@
 import React from "react";
 import ClienteForm from "../Components/Cliente_Form";
 import TabelaClientes from "../Components/Cliente_Tabela";
+import '../css/cadastroclientes.css'
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import { useState } from 'react';
 
 const Clientes = () => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
     <>
       <div>
-        <h2>clientes texxte</h2>
+        <center>
+          <h2 className="h2">CADASTRE-SE</h2>
+        </center>
+        
      <ClienteForm/>
-     <TabelaClientes/>
+     <Button className="botaotabela" variant="primary" onClick={handleShow}>
+        Tabela Clientes
+      </Button>
+     <Modal show={show} onHide={handleClose} size="lg">
+        <Modal.Header closeButton>
+          <Modal.Title>Tabela Produtos</Modal.Title>
+        </Modal.Header>
+        <Modal.Body> <TabelaClientes/></Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+          Fechar
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Salvar Dados
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+
       </div>
     </>
   );

@@ -29,10 +29,10 @@
     padding-bottom: 20px;
 }
 
-p {
+.legendacadas {
     margin: 0%;
     text-align: left;
-   color: white;
+    color: white;
 }
 
 .salvar {
@@ -46,12 +46,12 @@ input {
 }
 
 .dataad {
-    width: 190px;
+    width: 160px;
     height: 30px;
 }
 
 .datanasci {
-    width: 190px;
+    width: 160px;
     height: 30px;
 }
 
@@ -70,7 +70,3 @@ body {
     width: 900px;
 }
 
-
-.chakra-ui-light {
-    background-color: white;
-}

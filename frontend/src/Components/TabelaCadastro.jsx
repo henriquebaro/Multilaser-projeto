@@ -50,7 +50,7 @@ const TabelaCadastro = () => {
   return (
     <div className="tabelacadastrofunc">
       
-      <Button onClick={() => setLgShow(true)}>Tabela Cadastro</Button>
+      <Button onClick={() => setLgShow(true)} className="botaotabela">Tabela Cadastro</Button>
       <Modal
         size="xl"
         show={lgShow}

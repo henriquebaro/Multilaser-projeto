@@ -1,47 +1,8 @@
-/* styles.css */
-.table-container {
-    width: 100%;
-    overflow-x: auto;
-  }
+
   
-  .table {
-    width: 100%;
-    border-collapse: collapse;
-  }
   
-  .table th, .table td {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-  }
-  
-  .table th {
-    background-color: #456ABD;
-    color: white;
-  }
-  
-  .table tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  .table tr:hover {
-    background-color: #CCE5FF;
-  }
-  
-  .excluir-btn {
-    background-color: #FF4136;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .excluir-btn:hover {
-    background-color: #D40B00;
-  }
-  
+.botaotabela {
+  position: fixed;
+  bottom: 20px; /* Distância do fundo da tela */
+  right: 20px; /* Distância da direita da tela */
+}

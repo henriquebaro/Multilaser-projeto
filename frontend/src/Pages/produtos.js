@@ -4,8 +4,7 @@ import Tabelaprodutos from "../Components/Produtos_Tabela";
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import Pedidos_form from '../Components/Pedidos_form';
-import Tabela_pedidos from '../Components/Pedidos_tabela';
+
 
 
 function Produto() {
@@ -34,11 +33,7 @@ function Produto() {
      <Button variant="primary" onClick={handleShow}>
         Tabela Produtos
       </Button>
-     <h1>
-      faça um pedido
-     </h1>  
-  <Pedidos_form/>
-  {/* <Tabela_pedidos/> */}
+ 
     </>
   );
 }

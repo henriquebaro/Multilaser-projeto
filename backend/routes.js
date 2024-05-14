@@ -86,7 +86,7 @@ router.get('/produtos', (req, res) => {
 
 // Rota para buscar um registro específico pelo id_funcionarios
 router.get('/produtos/:idProdutos', (req, res) => {
-  const { id_funcionarios } = req.params;
+  const { idProdutos } = req.params;
   connection.query('SELECT * FROM produtos WHERE idProdutos = ?', [idProdutos], (err, results) => {
     if (err) {
       console.error('Erro ao buscar o registro:', err);
@@ -280,5 +280,22 @@ router.delete('/fornecedores/:id_fornecedor', (req, res) => {
       return;
     }
     res.json({ message: 'Registro excluído com sucesso' });
+  });
+});
+ /////////////////////////////// pedidos //////////////////////////////////////
+ router.get('/dadosCombinados', (req, res) => {
+  const query = `
+    SELECT pedidos.id AS id_pedido, clientes.nome AS nome_cliente, produtos.nome AS nome_produto, pedidos.quantidade, pedidos.data_pedido
+    FROM pedidos
+    INNER JOIN clientes ON pedidos.id_cliente = clientes.id
+    INNER JOIN produtos ON pedidos.id_produto = produtos.id
+  `;
+  connection.query(query, (error, results) => {
+    if (error) {
+      console.error('Erro ao buscar dados combinados:', error);
+      res.status(500).json({ error: 'Erro ao buscar dados combinados' });
+      return;
+    }
+    res.json(results);
   });
 });

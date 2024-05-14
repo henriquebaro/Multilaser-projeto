@@ -1,40 +1,81 @@
-// import React, { useState, useEffect } from "react";
-// import axios from "axios";
+ import React, { useState } from "react";
+ import axios from "axios";
 
-// const Tabela_pedidos = () => {
-//     const [pedidos, setPedidos] = useState([]);
 
-//     useEffect(() => {
-//       const fetchPedidos = async () => {
-//         const response = await axios.get('http://localhost:3001/produtos');
-//         setPedidos(response.data);
-//       };
-//       fetchPedidos();
-//     }, []);
+ function Tabela_pedidos() {
+    const [cliente, setCliente] = useState('');
+    const [produto, setProduto] = useState('');
+    const [clienteNome, setClienteNome] = useState('');
+    const [produtoNome, setProdutoNome] = useState('');
   
-//     return (
-//       <table>
-//         <thead>
-//           <tr>
-//             <th>ID</th>
-//             <th>Cliente</th>
-//             <th>Produto</th>
-
+    const handleBuscarCliente = async (id) => {
+      try {
+        const response = await axios.get(`http://localhost:3001/clientes/${id}`);
+        setClienteNome(response.data.nome);
+      } catch (error) {
+        console.error('Erro ao buscar cliente:', error);
+      }
+    };
+  
+    const handleBuscarProduto = async (id) => {
+      try {
+        const response = await axios.get(`http://localhost:3001/produtos/${id}`);
+        setProdutoNome(response.data.nomeProduto);
+      } catch (error) {
+        console.error('Erro ao buscar produto:', error);
+      }
+    };
+  
+    const handleAdicionarPedido = async () => {
+      try {
       
-//           </tr>
-//         </thead>
-//         <tbody>
-//           {pedidos.map(pedido => (
-//             <tr key={pedido.id_pedidos}>
-//               <td>{pedido.id_pedidos}</td>
-//               <td>{pedido.nome}</td>
-//               <td>{pedido.nomeProduto}</td>
-          
-//             </tr>
-//           ))}
-//         </tbody>
-//       </table>
-//     );
-//   }
+        await axios.post('http://localhost:3000/pedidos', {
+         id: cliente.id,
+          idProdutos: produto.idProdutos
+        });
+        alert('Pedido adicionado com sucesso');
+      } catch (error) {
+        console.error('Erro ao adicionar pedido:', error);
+        alert('Erro ao adicionar pedido');
+      }
+    };
+  
+    return (
+      <div>
+        <input
+          type="text"
+          placeholder="ID do Cliente"
+          onChange={(e) => setCliente(e.target.value)}
+        />
+        <button onClick={() => handleBuscarCliente(cliente)}>Buscar Cliente</button>
+        <br />
+        <input
+          type="text"
+          placeholder="ID do Produto"
+          onChange={(e) => setProduto(e.target.value)}
+        />
+        <button onClick={() => handleBuscarProduto(produto)}>Buscar Produto</button>
+        <br />
+        <button onClick={handleAdicionarPedido}>Adicionar Pedido</button>
+        <table>
+          <thead>
+            <tr>
+              <th>Cliente</th>
+              <th>Produto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{clienteNome}</td>
+              <td>{produtoNome}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    );
+  
+  }
+  
 
-// export default Tabela_pedidos;
+
+ export default Tabela_pedidos;

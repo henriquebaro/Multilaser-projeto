@@ -1,45 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-const Pedidos_form = () => {
-    const [dadosCombinados, setDadosCombinados] = useState([]);
+// import React, { useState, useEffect } from 'react';
+// import axios from 'axios';
 
-  useEffect(() => {
-    const fetchDadosCombinados = async () => {
-      try {
-        const response = await axios.get('http://localhost:3000/dadosCombinados');
-        setDadosCombinados(response.data);
-      } catch (error) {
-        console.error('Erro ao buscar dados combinados:', error);
-      }
-    };
-    fetchDadosCombinados();
-  }, []);
+// function Pedidos_form({ tipo, onBuscar }) {
+//   const [idCliente, setIdCliente] = useState('');
+//   const [idProduto, setIdProduto] = useState('');
 
-  return (
-    <table>
-      <thead>
-        <tr>
-          <th>ID Pedido</th>
-          <th>Cliente</th>
-          <th>Produto</th>
-          <th>Quantidade</th>
-          <th>Data do Pedido</th>
-        </tr>
-      </thead>
-      <tbody>
-        {dadosCombinados.map(dado => (
-          <tr key={dado.id_pedido}>
-            <td>{dado.id_pedido}</td>
-            <td>{dado.nome_cliente}</td>
-            <td>{dado.nome_produto}</td>
-            <td>{dado.quantidade}</td>
-            <td>{dado.data_pedido}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
-}
+//   const handleAdicionarPedido = async () => {
+//     try {
+//       await axios.post('http://localhost:3000/pedidos', {
+//         id_cliente: idCliente,
+//         id_produto: idProduto
+//       });
+//       alert('Pedido adicionado com sucesso');
+//     } catch (error) {
+//       console.error('Erro ao adicionar pedido:', error);
+//       alert('Erro ao adicionar pedido');
+//     }
+//   };
 
-  export default Pedidos_form;
+//   return (
+//     <div>
+//       <input type="text" placeholder="ID Cliente" value={idCliente} onChange={(e) => setIdCliente(e.target.value)} />
+//       <input type="text" placeholder="ID Produto" value={idProduto} onChange={(e) => setIdProduto(e.target.value)} />
+//       <button onClick={handleAdicionarPedido}>Adicionar Pedido</button>
+//     </div>
+//   );
+// }
+
+//   export default Pedidos_form;
   

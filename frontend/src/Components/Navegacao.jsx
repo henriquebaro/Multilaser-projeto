@@ -1,3 +1,4 @@
+import { LinkOverlay } from '@chakra-ui/react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -24,6 +25,9 @@ const Header = () => {
           </li>
           <li>
             <Link to="/fornecedores">fornecedores</Link>
+          </li>
+          <li>
+            <Link to="/pedidos">pedidos</Link>
           </li>
         </ul>
       </nav>

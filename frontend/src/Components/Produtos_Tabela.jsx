@@ -57,7 +57,7 @@ const Tabelaprodutos = () => {
               <td> R${cadastro.preco}</td>
              
               <td>
-              <Button onClick={() => handleExcluirUsuario(cadastro.idProdutos)} className="botaotabela">Excluir</Button>
+              <Button onClick={() => handleExcluirUsuario(cadastro.idProdutos)} >Excluir</Button>
                
               </td>
               {/* Renderizar outras colunas, se necessário */}

@@ -96,7 +96,7 @@ const TabelaCadastro = () => {
               <td>{converterData(cadastro.data_admissao)}</td>
               <td>{cadastro.senha}</td>
               <td>
-                <Button onClick={() => handleExcluirUsuario(cadastro.id_funcionarios)} className="botaotabela">Excluir</Button>
+                <Button onClick={() => handleExcluirUsuario(cadastro.id_funcionarios)}>Excluir</Button>
               </td>
               {/* Renderizar outras colunas, se necessário */}
             </tr>

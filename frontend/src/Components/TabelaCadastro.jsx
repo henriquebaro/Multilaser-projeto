@@ -1,17 +1,25 @@
-import React, { useState, useEffect } from "react";
+import { React, useEffect } from "react";
+import useState from "react";
 import axios from "axios";
-import '../css/cadastrofunc.css'
+import '../css/cadastrofunc.css';
+import '../css/TabelaCadastro.css';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+
 function converterData(dataMySQL) {
   // Divide a data MySQL em partes
   var partesHora = dataMySQL.split('T');
 
   var partesData = partesHora[0].split('-');
-  
+
+
   // Formata a data no padrão brasileiro
   var dataFormatada = partesData[2] + '/' + partesData[1] + '/' + partesData[0];
-  
+
   return dataFormatada;
 }
+
+
 const TabelaCadastro = () => {
   const [cadastros, setCadastros] = useState([]);
 
@@ -39,7 +47,7 @@ const TabelaCadastro = () => {
       console.error("Erro ao excluir usuário:", error);
     }
   };
-
+  const [lgShow, setLgShow] = useState(false);
   return (
     <div className="tabelacadastrofunc">
       <table border={2} cellPadding={5} cellSpacing={5}>
@@ -77,18 +85,26 @@ const TabelaCadastro = () => {
               <td>{converterData(cadastro.data_admissao)}</td>
               <td>{cadastro.senha}</td>
               <td>
-                <button
-                  variant="danger"
-                  onClick={() => handleExcluirUsuario(cadastro.id_funcionarios)}
-                >
-                  Excluir
-                </button>
+                <Button onClick={() => handleExcluirUsuario(cadastro.idProdutos)} className="botaotabela">Excluir</Button>
               </td>
               {/* Renderizar outras colunas, se necessário */}
             </tr>
           ))}
         </tbody>
       </table>
+      <Button onClick={() => setLgShow(true)}>Large modal</Button>
+      <Modal
+        size="xl"
+        show={lgShow}
+        onHide={() => setLgShow(false)}
+        aria-labelledby="example-modal-sizes-title-lg">
+        <Modal.Header closeButton>
+          <Modal.Title id="example-modal-sizes-title-lg">
+            Tabela Cadastro
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>  </Modal.Body>
+      </Modal>
     </div>
   );
 };

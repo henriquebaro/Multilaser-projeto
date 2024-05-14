@@ -1,28 +1,43 @@
 //Cadastro
-import React from "react";
+import React, { useState } from "react";
 import CadastroForm from "../Components/CadastroForm";
 import TabelaCadastro from "../Components/TabelaCadastro";
 import '../css/cadastrofunc.css'
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
-const Cadastro = () => {
+
+
+function Cadastro ()  {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+ 
   
   return (
-    <>
-      <div>
-       
-       
-             <center>
-            <h2 className="h2">CADASTRE-SE</h2>
-             </center>
-        
-      
-      
-             <CadastroForm />
-           <br/>
-           <br/>
+    <>  
+    <CadastroForm/>
+    <Button variant="primary" onClick={handleShow}>
+        Launch demo modal
+      </Button>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body><TabelaCadastro/></Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
      
-        <TabelaCadastro />
-      </div>
     </>
   );
 };

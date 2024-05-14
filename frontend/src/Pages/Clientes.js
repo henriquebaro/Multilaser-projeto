@@ -11,6 +11,7 @@ const Clientes = () => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  
   return (
     <>
       <div>
@@ -19,12 +20,13 @@ const Clientes = () => {
         </center>
         
      <ClienteForm/>
+
      <Button className="botaotabela" variant="primary" onClick={handleShow}>
         Tabela Clientes
       </Button>
      <Modal show={show} onHide={handleClose} size="lg">
         <Modal.Header closeButton>
-          <Modal.Title>Tabela Produtos</Modal.Title>
+          <Modal.Title>Tabela Clientes</Modal.Title>
         </Modal.Header>
         <Modal.Body> <TabelaClientes/></Modal.Body>
         <Modal.Footer>

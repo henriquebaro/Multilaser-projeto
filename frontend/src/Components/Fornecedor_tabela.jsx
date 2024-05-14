@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Button from 'react-bootstrap/Button';
+import "../css/fornecedortabela.css";
 
-const TabelaClientes = () => {
+const TabelaFornecedores = () => {
   const [cadastros, setCadastros] = useState([]);
 
   useEffect(() => {
@@ -30,8 +32,8 @@ const TabelaClientes = () => {
   };
 
   return (
-    <div>
-      <table border={2} cellPadding={5} cellSpacing={5}>
+    <div className="tabelafornecedor">
+      <table border={2} cellPadding={5} cellSpacing={5} >
         <thead>
           <tr>
             <th>ID</th>
@@ -58,12 +60,7 @@ const TabelaClientes = () => {
               
           
               <td>
-                <button
-                  variant="danger"
-                  onClick={() => handleExcluirUsuario(cadastro.id_fornecedor)}
-                >
-                  Excluir
-                </button>
+              <Button onClick={() => handleExcluirUsuario(cadastro.id_fornecedor)}>Excluir</Button>
               </td>
               {/* Renderizar outras colunas, se necessário */}
             </tr>
@@ -74,4 +71,4 @@ const TabelaClientes = () => {
   );
 };
 
-export default TabelaClientes;
+export default TabelaFornecedores;

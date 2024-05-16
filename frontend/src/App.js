@@ -9,20 +9,18 @@ import Rotas from "./Routes";
 //Importar componentes aqui
 import Navegacao from "./Components/Navegacao";
 
+
 const App = () => {
   return (
-    <>     
-    
-      <Router>
+    <>
 
- 
-   
-  <ChakraProvider>
-        <Navegacao />  
-        <Rotas />
-       </ChakraProvider>
-      </Router>    
-      
+      <Router>
+        <ChakraProvider>
+          <Navegacao />
+          <Rotas />
+        </ChakraProvider>
+      </Router>
+
     </>
   );
 };

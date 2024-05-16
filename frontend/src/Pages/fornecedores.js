@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import '../css/fornecedortabela.css';
 
+
 const Fornecedores = () => {
   const [show, setShow] = useState(false);
 
@@ -14,6 +15,7 @@ const Fornecedores = () => {
   const handleShow = () => setShow(true);
   return (
     <>
+
       <div>
         <center>
           <h2 className="h2">FORNECEDORES </h2>
@@ -38,6 +40,7 @@ const Fornecedores = () => {
     <Button className="botaotabela" variant="primary" onClick={handleShow}>
         Tabela Fornecedores
       </Button>
+
       </div>
     </>
   );

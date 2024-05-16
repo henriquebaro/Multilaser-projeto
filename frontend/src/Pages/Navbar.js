@@ -1,11 +1,11 @@
 import React from "react";
 
-function OffcanvasExample() {
+function Navbar() {
   return (
     <>
-
+<h1>Navbar</h1>
     </>
   );
 }
 
-export default OffcanvasExample;
+export default Navbar;

@@ -5,17 +5,13 @@ import TabelaCadastro from "../Components/TabelaCadastro";
 
 
 
-
-
-
-const Cadastro   = () => {
+const Cadastro = () => {
   return (
     <>
+      
       <CadastroForm />
-<TabelaCadastro/>
+      <TabelaCadastro />
 
-
-    
     </>
   );
 };

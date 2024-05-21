@@ -1,2 +1,25 @@
+.imagemlogo {
+    width: 100px;
+    /* Ajuste o tamanho conforme necessário */
+}
 
+.letrahome {
+    font-size: 1.2rem;
+    margin-top: 5px;
   
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.search-form {
+    margin-top: 10px;
+}
+
+
+
+
+

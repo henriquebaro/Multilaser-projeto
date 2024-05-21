@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Button from 'react-bootstrap/Button';
-<<<<<<< HEAD
 import Table from 'react-bootstrap/Table';
 import "../css/tabelapedidos.css";
-=======
->>>>>>> c88ca9439be78cde3f0aaccb00c8ac687a62957a
 
 function Tabela_pedidos() {
   const [slClientes, setSlClientes] = useState([]);
@@ -103,7 +100,6 @@ function Tabela_pedidos() {
 
       <button onClick={handleAdicionarPedido}>Adicionar Pedido</button>
 
-<<<<<<< HEAD
 
           <Table>
             <thead>
@@ -135,32 +131,6 @@ function Tabela_pedidos() {
           </Table>
         </div>
           );
-=======
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Cliente</th>
-            <th>Produto</th>
-          </tr>
-        </thead>
-        <tbody>
-  {pedidos.map((pedido) => (
-    <tr key={pedido.id_pedido}>
-      <td>{pedido.id_pedido}</td>
-      <td>{slClientes.find(clientes => clientes.id === pedido.id_cliente)?.nome}</td>
-      <td>{slProdutos.find(produtos => produtos.idProdutos === pedido.id_produto)?.nomeProduto}</td>
-      <td>
-        <Button onClick={() => handleExcluirUsuario(pedido.id_pedido)}>Excluir</Button>
-      </td>
-    </tr>
-  ))}
-</tbody>
-
-      </table>
-    </div>
-  );
->>>>>>> c88ca9439be78cde3f0aaccb00c8ac687a62957a
 }
 
           export default Tabela_pedidos;

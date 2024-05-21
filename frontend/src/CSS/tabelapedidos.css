@@ -1,0 +1,35 @@
+.table {
+font-family: sans-serif;
+font-weight: 100;
+border-collapse: collapse;
+overflow: hidden;
+box-shadow: 0 0 5px rgb(172, 172, 172);
+}
+
+
+th {
+   text-align: left;
+}
+
+thead th {
+    background-color: royalblue;
+}
+
+tbody tr:hover {
+background-color: rgba(204, 204, 204, 0.731);
+
+}
+
+
+
+.botaotabela {
+    position: fixed;
+    bottom: 20px; /* Distância do fundo da tela */
+    right: 20px; /* Distância da direita da tela */
+}
+
+
+
+.botaotabela {
+    background-color: royalblue;
+}

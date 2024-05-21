@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
+import "../css/tabelapedidos.css";
 
 function Tabela_pedidos() {
   const [slClientes, setSlClientes] = useState([]);
@@ -199,36 +200,37 @@ function Tabela_pedidos() {
 
       <button onClick={handleAdicionarPedido}>Adicionar Pedido</button>
 
-      <Table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Cliente</th>
-            <th>Produto</th>
-            <th>Quantidade</th>
-            <th>Valor Total</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          {pedidos.map((pedido) => (
-            <tr key={pedido.id_pedido}>
-              <td>{pedido.id_pedido}</td>
-              <td>{clientes[pedido.id]}</td>
-              <td>{produtos[pedido.idProdutos]}</td>
-              <td>{pedido.quantidade}</td>
-              <td>{typeof pedido.valorTotal === 'number' ? `R$ ${pedido.valorTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : 'Valor Indisponível'}</td>
+
+          <Table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Cliente</th>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Valor Total</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              {pedidos.map((pedido) => (
+                <tr key={pedido.id_pedido}>
+                  <td>{pedido.id_pedido}</td>
+                  <td>{clientes[pedido.id]}</td>
+                  <td>{produtos[pedido.idProdutos]}</td>
+                  <td>{pedido.quantidade}</td>
+                  <td>{typeof pedido.valorTotal === 'number' ? `R$ ${pedido.valorTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : 'Valor Indisponível'}</td>
 
 
-              <td>
-                <Button onClick={() => handleExcluirUsuario(pedido.id_pedido)}>Excluir</Button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-    </div>
-  );
+                  <td>
+                    <Button onClick={() => handleExcluirUsuario(pedido.id_pedido)}>Excluir</Button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </div>
+          );
 }
 
-export default Tabela_pedidos;
+          export default Tabela_pedidos;

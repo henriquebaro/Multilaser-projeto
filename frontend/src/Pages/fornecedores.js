@@ -18,7 +18,9 @@ const Fornecedores = () => {
 
       <div>
         <center>
-          <h2 className="h2">FORNECEDORES </h2>
+          <br/>
+          <h1>Fornecedores </h1>
+          <br/>
         </center>
         
     <Fornecedor_form/>

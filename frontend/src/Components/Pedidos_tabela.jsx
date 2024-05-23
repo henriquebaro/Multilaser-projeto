@@ -106,35 +106,6 @@ function Tabela_pedidos() {
 
   return (
     <div>
-      <select name="id_cliente" id="id_cliente" onChange={handleClienteChange}>
-        <option value="">Selecione o cliente</option>
-        {slClientes.map((slCliente) => (
-          <option key={slCliente.id} value={slCliente.id}>{slCliente.nome}</option>
-        ))}
-      </select>
-
-      <select name="id_produto" id="id_produto" onChange={handleProdutoChange}>
-        <option value="">Selecione o Produto</option>
-        {slProdutos.map((slProduto) => (
-          <option key={slProduto.idProdutos} value={slProduto.idProdutos}>{slProduto.nomeProduto}</option>
-        ))}
-      </select>
-
-      {quantidadeDisponivel > 0 && (
-        <select name="quantidade" id="quantidade" onChange={handleQuantidadeChange}>
-          <option value="">Selecione a quantidade</option>
-          {Array.from({ length: quantidadeDisponivel }, (_, index) => index + 1).map((quantidade) => (
-            <option key={quantidade} value={quantidade}>
-              {quantidade}
-            </option>
-          ))}
-        </select>
-      )}
-
-      <div>Valor Total: R$ {valorTotal.toFixed(2)}</div>
-
-      <button onClick={handleAdicionarPedido}>Adicionar Pedido</button>
-
       <Table>
         <thead>
           <tr>

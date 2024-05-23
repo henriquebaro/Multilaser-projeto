@@ -1,7 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Button from 'react-bootstrap/Button';
-import Table from 'react-bootstrap/Table';
+import "../css/tabelapedidos.css";
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  TableContainer,
+} from '@chakra-ui/react'
 
 function Tabela_pedidos() {
   const [slClientes, setSlClientes] = useState([]);
@@ -106,32 +117,43 @@ function Tabela_pedidos() {
 
   return (
     <div>
-      <Table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Cliente</th>
-            <th>Produto</th>
-            <th>Quantidade</th>
-            <th>Valor Total</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          {pedidos.map((pedido) => (
-            <tr key={pedido.id_pedido}>
-              <td>{pedido.id_pedido}</td>
-              <td>{clientes[pedido.id]}</td>
-              <td>{produtos[pedido.idProdutos]}</td>
-              <td>{pedido.quantidade}</td>
-              <td>{typeof pedido.valorTotal === 'number' ? `R$ ${pedido.valorTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : 'Valor Indisponível'}</td>
-              <td>
-                <Button onClick={() => handleExcluirUsuario(pedido.id_pedido)}>Excluir</Button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
+      <TableContainer>
+        <Table variant='siple' colorScheme='teal'>
+          <TableCaption></TableCaption>
+          <Thead>
+            <Tr>
+              <Th>ID</Th>
+              <Th>Cliente</Th>
+              <Th>Produto</Th>
+              <Th>Quantidade</Th>
+              <Th>Valor Total</Th>
+              <Th>Ações</Th>
+              <Th isNumeric></Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            {pedidos.map((pedido) => (
+              <Tr key={pedido.id_pedido}>
+                <Td>{pedido.id_pedido}</Td>
+                <Td>{clientes[pedido.id]}</Td>
+                <Td>{produtos[pedido.idProdutos]}</Td>
+                <Td>{pedido.quantidade}</Td>
+                <Td>{typeof pedido.valorTotal === 'number' ? `R$ ${pedido.valorTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : 'Valor Indisponível'}</Td>
+                <Td>
+                  <Button onClick={() => handleExcluirUsuario(pedido.id_pedido)}>Excluir</Button>
+                </Td>
+              </Tr>
+            ))}
+           </Tbody>
+              <Tfoot>
+                <Tr>
+                  <Th></Th>
+                  <Th></Th>
+                  <Th></Th>
+                </Tr>
+              </Tfoot>
+            </Table>
+          </TableContainer>
     </div>
   );
 }

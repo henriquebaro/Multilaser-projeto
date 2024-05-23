@@ -1,10 +1,20 @@
-import { React, useEffect,useState } from "react";
+import { React, useEffect, useState } from "react";
 import axios from "axios";
 import '../css/cadastrofunc.css';
-import '../css/TabelaCadastro.css';
+import "../css/tabelacadastrofunc.css";
 import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  TableContainer,
+} from '@chakra-ui/react'
 function converterData(dataMySQL) {
   // Divide a data MySQL em partes
   var partesHora = dataMySQL.split('T');
@@ -48,62 +58,58 @@ const TabelaCadastro = () => {
   };
   const [lgShow, setLgShow] = useState(false);
   return (
-    <div className="tabelacadastrofunc">
-      
-      <Button onClick={() => setLgShow(true)} className="botaotabela">Tabela Cadastro</Button>
-      <Modal
-        size="xl"
-        show={lgShow}
-        onHide={() => setLgShow(false)}
-        aria-labelledby="example-modal-sizes-title-lg">
-        <Modal.Header closeButton>
-          <Modal.Title id="example-modal-sizes-title-lg">
-            Tabela Cadastro
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>  <table border={2} cellPadding={5} cellSpacing={5}>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>CPF</th>
-            <th>RG</th>
-            <th>Data nascimento</th>
-            <th>CEP</th>
-            <th>Celular</th>
-            <th>Cargo</th>
-            <th>Departamento</th>
-            <th>Data de admissao</th>
-            <th>Ação</th>
-            <th>Senha</th>
-            {/* Adicione mais colunas, se necessário */}
-          </tr>
-        </thead>
-        <tbody>
-          {cadastros.map((cadastro) => (
-            <tr key={cadastro.id_funcionarios}>
-              <td>{cadastro.id_funcionarios}</td>
-              <td>{cadastro.nome}</td>
-              <td>{cadastro.email}</td>
-              <td>{cadastro.cpf}</td>
-              <td>{cadastro.rg}</td>
-              <td>{converterData(cadastro.data_nascimento)}</td>
-              <td>{cadastro.cep}</td>
-              <td>{cadastro.celular}</td>
-              <td>{cadastro.cargo}</td>
-              <td>{cadastro.departamento}</td>
-              <td>{converterData(cadastro.data_admissao)}</td>
-              <td>{cadastro.senha}</td>
-              <td>
-                <Button onClick={() => handleExcluirUsuario(cadastro.id_funcionarios)}>Excluir</Button>
-              </td>
-              {/* Renderizar outras colunas, se necessário */}
-            </tr>
-          ))}
-        </tbody>
-      </table></Modal.Body>
-      </Modal>
+    <div>
+   
+            <TableContainer>
+  <Table variant='siple' colorScheme='teal'>
+    <TableCaption></TableCaption>
+    <Thead>
+      <Tr>
+      <Th>ID</Th>
+                <Th>Nome</Th>
+                <Th>Email</Th>
+                <Th>CPF</Th>
+                <Th>RG</Th>
+                <Th>Data nascimento</Th>
+                <Th>CEP</Th>
+                <Th>Celular</Th>
+                <Th>Cargo</Th>
+                <Th>Departamento</Th>
+                <Th>Data de admissao</Th>
+                <Th>Ação</Th>
+                <Th>Senha</Th>
+      </Tr>
+    </Thead>
+    <Tbody>
+    {cadastros.map((cadastro) => (
+                <Tr key={cadastro.id_funcionarios}>
+                  <Td>{cadastro.id_funcionarios}</Td>
+                  <Td>{cadastro.nome}</Td>
+                  <Td>{cadastro.email}</Td>
+                  <Td isNumeric>{cadastro.cpf}</Td>
+                  <Td isNumeric>{cadastro.rg}</Td>
+                  <Td isNumeric>{converterData(cadastro.data_nascimento)}</Td>
+                  <Td>{cadastro.cep}</Td>
+                  <Td isNumeric>{cadastro.celular}</Td>
+                  <Td>{cadastro.cargo}</Td>
+                  <Td>{cadastro.departamento}</Td>
+                  <Td isNumeric>{converterData(cadastro.data_admissao)}</Td>
+                  <Td>{cadastro.senha}</Td>
+                  <Td>
+                    <Button onClick={() => handleExcluirUsuario(cadastro.id_funcionarios)}>Excluir</Button>
+                  </Td>
+                 </Tr>   
+                   ))}
+                  </Tbody>
+    <Tfoot>
+      <Tr>
+        <Th></Th>
+        <Th></Th>
+        <Th ></Th>
+      </Tr>
+    </Tfoot>
+  </Table>
+</TableContainer>
     </div>
   );
 };

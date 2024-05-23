@@ -10,6 +10,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import "../css/tabelapedidos.css";
 import "../css/formpedidos.css";
+import Rodape from "../Components/Rodape";
 
 function Pedidos(){
     const [show, setShow] = useState(false);
@@ -197,6 +198,13 @@ function Pedidos(){
           </Button>
         </Modal.Footer>
       </Modal>
+
+      <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <Rodape/>
         </>
     )
 }

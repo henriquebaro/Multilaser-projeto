@@ -2,6 +2,7 @@
 import React from "react";
 import CadastroForm from "../Components/CadastroForm";
 import TabelaCadastro from "../Components/TabelaCadastro";
+import Rodape from "../Components/Rodape";
 
 
 
@@ -11,9 +12,20 @@ import TabelaCadastro from "../Components/TabelaCadastro";
 const Cadastro   = () => {
   return (
     <>
+    <br/>
+    
+    <center>
+      <h1>Cadastro dos funcionários</h1>
+    </center>
+    <br/>
       <CadastroForm />
-<TabelaCadastro/>
-
+      <TabelaCadastro/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <Rodape/>
 
     
     </>

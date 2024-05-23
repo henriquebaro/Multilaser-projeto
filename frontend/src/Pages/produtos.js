@@ -4,6 +4,7 @@ import Tabelaprodutos from "../Components/Produtos_Tabela";
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import Rodape from "../Components/Rodape";
 
 
 function Produto() {
@@ -28,14 +29,21 @@ function Produto() {
         </Modal.Footer>
       </Modal>
       <center>
-        <h1 className="h1produtos">ADICIONE OS PRODUTOS</h1>
+        <br/>
+        <h1 className="h1produtos">Adicione os produtos</h1>
       </center>
-      
+       
+
      <Produtos_form/>
      <Button className="botaotabela" variant="primary" onClick={handleShow}>
         Tabela Produtos
       </Button>
- 
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <Rodape/>
     </>
   );
 }

@@ -1,12 +1,14 @@
 //Contato
 import React from "react";
+import Contatoform from "../Components/ContatoForm";
 
 const Contato = () => {
   return (
     <>
       <div>
-        <h2>Página Contato</h2>
-        {/* Conteúdo da página Contato */}
+        <h2>Fale conosco</h2>
+        
+        <Contatoform />
       </div>
     </>
   );

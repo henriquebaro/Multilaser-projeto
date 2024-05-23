@@ -1,0 +1,30 @@
+table {
+    font-family: sans-serif;
+    font-weight: 100;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 0 5px rgb(172, 172, 172);
+    width: 700px;
+
+}
+
+
+th {
+    text-align: left;
+
+}
+
+thead th {
+    background-color: royalblue;
+}
+
+
+
+.botaotabela {
+    background-color: royalblue;
+    position: fixed;
+    bottom: 20px;
+    /* Distância do fundo da tela */
+    right: 20px;
+    /* Distância da direita da tela */
+}

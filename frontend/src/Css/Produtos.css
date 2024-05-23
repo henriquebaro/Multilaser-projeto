@@ -1,11 +1,4 @@
-th {
-    background-color: royalblue;
-    color: white;
-}
 
-.botaotabela {
-    background-color: royalblue;
-}
 
 .hori1 {
     padding-bottom: 20px !important;
@@ -47,9 +40,3 @@ th {
     padding-bottom: 20px;
 }
 
-
-.botaotabela {
-    position: fixed;
-    bottom: 20px; /* Distância do fundo da tela */
-    right: 20px; /* Distância da direita da tela */
-}

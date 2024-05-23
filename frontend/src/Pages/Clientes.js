@@ -2,6 +2,7 @@ import React from "react";
 import ClienteForm from "../Components/Cliente_Form";
 import TabelaClientes from "../Components/Cliente_Tabela";
 import '../css/cadastroclientes.css'
+import "../css/tabelacadastrocliente.css";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
@@ -29,7 +30,7 @@ const Clientes = () => {
      <Button className="botaotabela" variant="primary" onClick={handleShow}>
         Tabela Clientes
       </Button>
-     <Modal show={show} onHide={handleClose} size="lg">
+     <Modal show={show} onHide={handleClose} size="xl">
         <Modal.Header closeButton>
           <Modal.Title>Tabela Clientes</Modal.Title>
         </Modal.Header>

@@ -1,6 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Button from 'react-bootstrap/Button';
+import "../css/tabelacadastrocliente.css";
+
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  TableContainer,
+} from '@chakra-ui/react'
 
 const TabelaClientes = () => {
   const [cadastros, setCadastros] = useState([]);
@@ -31,43 +44,51 @@ const TabelaClientes = () => {
   };
 
   return (
-    <div>
-      <table border={2} cellPadding={5} cellSpacing={5}>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>CPF</th>
-            <th>Data nascimento</th>
-            <th>CEP</th>
-            <th>Celular</th>
-            
-       
-            {/* Adicione mais colunas, se necessário */}
-          </tr>
-        </thead>
-        <tbody>
-          {cadastros.map((cadastro) => (
-            <tr key={cadastro.id}>
-              <td>{cadastro.id}</td>
-              <td>{cadastro.nome}</td>
-              <td>{cadastro.email}</td>
-              <td>{cadastro.cpf}</td>
-              <td>{cadastro.data_nascimento}</td>
-              <td>{cadastro.cep}</td>
-              <td>{cadastro.celular}</td>
-          
-              <td>
-              <Button onClick={() => handleExcluirUsuario(cadastro.id)}>Excluir</Button>
-              </td>
-              {/* Renderizar outras colunas, se necessário */}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
+    <>
+      <TableContainer>
+        <Table variant='siple' colorScheme='teal'>
+          <TableCaption></TableCaption>
+          <Thead>
+            <Tr>
+              <Th>ID</Th>
+              <Th>Nome</Th>
+              <Th>Email</Th>
+              <Th>CPF</Th>
+              <Th>Data nascimento</Th>
+              <Th>CEP</Th>
+              <Th>Celular</Th>
+              <Th isNumeric></Th>
+            </Tr>
+          </Thead>
+              <Tbody>
+                {cadastros.map((cadastro) => (
+                  <Tr key={cadastro.id}>
+                    <Td>{cadastro.id}</Td>
+                    <Td>{cadastro.nome}</Td>
+                    <Td>{cadastro.email}</Td>
+                    <Td>{cadastro.cpf}</Td>
+                    <Td>{cadastro.data_nascimento}</Td>
+                    <Td>{cadastro.cep}</Td>
+                    <Td>{cadastro.celular}</Td>
+
+                    <Td>
+                      <Button onClick={() => handleExcluirUsuario(cadastro.id)}>Excluir</Button>
+                    </Td>
+                    {/* Renderizar outras colunas, se necessário */}
+                  </Tr>
+                ))}
+              </Tbody>
+              <Tfoot>
+                <Tr>
+                  <Th></Th>
+                  <Th></Th>
+                  <Th></Th>
+                </Tr>
+              </Tfoot>
+            </Table>
+          </TableContainer>
+        </>
+        );
 };
 
-export default TabelaClientes;
+        export default TabelaClientes;

@@ -8,8 +8,8 @@ import { Box } from "@chakra-ui/react"
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import "../css/tabelapedidos.css";
 import "../css/formpedidos.css";
+import "../css/tabelapedidos.css";
 
 function Pedidos(){
     const [show, setShow] = useState(false);
@@ -166,21 +166,10 @@ function Pedidos(){
          </center>
 
           </Container>
-          
-
-      
-
-      
-
-      
-
-      
          </Box>
           </center>
-         
-         
-
-        <Button className="botaotabela" variant="primary" onClick={handleShow}>
+          
+          <Button className="botaotabela" variant="primary" onClick={handleShow}>
         Tabela dos pedidos
       </Button>
      <Modal show={show} onHide={handleClose} size="lg">

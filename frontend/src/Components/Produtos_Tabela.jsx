@@ -2,8 +2,18 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../css/Produtos.css";
 import Button from 'react-bootstrap/Button';
-
-
+import "../css/tabelaprodutos.css";
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  TableContainer,
+} from '@chakra-ui/react'
 
 const Tabelaprodutos = () => {
   const [cadastros, setCadastros] = useState([]);
@@ -35,36 +45,45 @@ const Tabelaprodutos = () => {
 
   return (
     <div>
-      <table border={2} cellPadding={5} cellSpacing={5}>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nome do produto</th>
-            <th>Quantidade</th>
-            <th>Descrição</th>
-            <th>Preço</th>
-            
-            {/* Adicione mais colunas, se necessário */}
-          </tr>
-        </thead>
-        <tbody>
-          {cadastros.map((cadastro) => (
-            <tr key={cadastro.idProdutos}>
-              <td>{cadastro.idProdutos}</td>
-              <td>{cadastro.nomeProduto}</td>
-              <td>{cadastro.quantidade}</td>
-              <td>{cadastro.descricao}</td>
-              <td> R${cadastro.preco}</td>
-             
-              <td>
-              <Button onClick={() => handleExcluirUsuario(cadastro.idProdutos)} >Excluir</Button>
-               
-              </td>
-              {/* Renderizar outras colunas, se necessário */}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <TableContainer>
+        <Table variant='siple' colorScheme='teal'>
+          <TableCaption></TableCaption>
+          <Thead>
+            <Tr>
+              <Th>ID</Th>
+              <Th>Nome do produto</Th>
+              <Th>Quantidade</Th>
+              <Th>Descrição</Th>
+              <Th>Preço</Th>
+              <Th isNumeric></Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            {cadastros.map((cadastro) => (
+              <Tr key={cadastro.idProdutos}>
+                <Td>{cadastro.idProdutos}</Td>
+                <Td>{cadastro.nomeProduto}</Td>
+                <Td>{cadastro.quantidade}</Td>
+                <Td>{cadastro.descricao}</Td>
+                <Td> R${cadastro.preco}</Td>
+
+                <Td>
+                  <Button onClick={() => handleExcluirUsuario(cadastro.idProdutos)} >Excluir</Button>
+
+                </Td>
+                {/* Renderizar outras colunas, se necessário */}
+              </Tr>
+            ))}
+          </Tbody>
+          <Tfoot>
+            <Tr>
+              <Th></Th>
+              <Th></Th>
+              <Th></Th>
+            </Tr>
+          </Tfoot>
+        </Table>
+      </TableContainer>
     </div>
   );
 };

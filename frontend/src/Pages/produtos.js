@@ -4,7 +4,7 @@ import Tabelaprodutos from "../Components/Produtos_Tabela";
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-
+import "../css/tabelaprodutos.css";
 
 function Produto() {
   const [show, setShow] = useState(false);

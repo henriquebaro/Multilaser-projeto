@@ -1,25 +1,80 @@
-import React from "react";
-import {Routes, Route} from "react-router-dom";
-import Home from "./Pages/Home";
-import Contato from "./Pages/Contato";
-import Cadastro from "./Pages/Cadastro";
-import Fornecedores from "./Pages/fornecedores";
-import Produto from "./Pages/produtos";
-import Clientes from "./Pages/Clientes";
-import Pedidos from "./Pages/pedidos";
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Home from './Pages/Home';
+import Contato from './Pages/Contato';
+import Cadastro from './Pages/Cadastro';
+import Fornecedores from './Pages/fornecedores';
+import Produto from './Pages/produtos';
+import Clientes from './Pages/Clientes';
+import Pedidos from './Pages/pedidos';
+import Login from './Components/Login';
+
+const PrivateRoute = ({ children }) => {
+  const auth = localStorage.getItem('token');
+  return auth ? children : <Navigate to="/login" />;
+};
+
 const Rotas = () => {
   return (
-    <>
-      <Routes>
-        <Route path="/" exact element={<Home />} />
-        <Route path="/contato" element={<Contato />} />
-        <Route path="/cadastro" element={<Cadastro />} />
-        <Route path="/fornecedores" element={<Fornecedores/>}/>
-        <Route path="/produtos" element={<Produto/>}/>
-        <Route path="/clientes" element={<Clientes/>}/>
-        <Route path="/pedidos" element={<Pedidos/>}/>
-      </Routes>
-    </>
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route
+        path="/home"
+        element={
+          <PrivateRoute>
+            <Home />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/contato"
+        element={
+          <PrivateRoute>
+            <Contato />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/cadastro"
+        element={
+          <PrivateRoute>
+            <Cadastro />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/fornecedores"
+        element={
+          <PrivateRoute>
+            <Fornecedores />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/produtos"
+        element={
+          <PrivateRoute>
+            <Produto />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/clientes"
+        element={
+          <PrivateRoute>
+            <Clientes />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/pedidos"
+        element={
+          <PrivateRoute>
+            <Pedidos />
+          </PrivateRoute>
+        }
+      />
+    </Routes>
   );
 };
 

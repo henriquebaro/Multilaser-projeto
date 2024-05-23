@@ -12,8 +12,8 @@ import {
   Td,
   TableCaption,
   TableContainer,
-} from '@chakra-ui/react'
-
+} from '@chakra-ui/react';
+import EditButton from './BOTAO/Button'; 
 const TabelaFornecedores = () => {
   const [cadastros, setCadastros] = useState([]);
 
@@ -25,10 +25,8 @@ const TabelaFornecedores = () => {
       } catch (error) {
         console.error("Erro ao buscar usuários:", error); // Adiciona este log de erro
       }
-    };
-
-    fetchData();
-  }, []);
+    }});
+   
 
   const handleExcluirUsuario = async (id_fornecedor) => {
     try {
@@ -41,7 +39,13 @@ const TabelaFornecedores = () => {
       console.error("Erro ao excluir usuário:", error);
     }
   };
-
+  const ItemList = ({ items }) => {
+    const [editingItem, setEditingItem] = useState(null);
+  
+    const handleEditClick = (item) => {
+      setEditingItem(item);
+      // Aqui você pode definir mais ações, como abrir um modal de edição
+    };}
   return (
     <div>
       <TableContainer>
@@ -68,7 +72,7 @@ const TabelaFornecedores = () => {
                 <Td>{cadastro.cep}</Td>
                 <Td>{cadastro.cnpj}</Td>
 
-
+<Td>  <EditButton onClick={() => handleEditClick(item)} /></Td>
                 <Td>
                   <Button onClick={() => handleExcluirUsuario(cadastro.id_fornecedor)}>Excluir</Button>
                 </Td>

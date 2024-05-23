@@ -9,11 +9,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import "../css/formpedidos.css";
-<<<<<<< HEAD
 import "../css/tabelapedidos.css";
-=======
 import Rodape from "../Components/Rodape";
->>>>>>> 3ac0f3a37a592e5a712f62c44ffe7333d77b446f
 
 function Pedidos(){
     const [show, setShow] = useState(false);

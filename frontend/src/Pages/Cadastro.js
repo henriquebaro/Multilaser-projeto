@@ -22,7 +22,6 @@ const Cadastro   = () => {
   return (
     <>
     <br/>
-    
     <center>
       <h1>Cadastro dos funcionários</h1>
     </center>
@@ -37,11 +36,11 @@ const Cadastro   = () => {
       <Rodape/>
 
 <Button className="botaotabela" variant="primary" onClick={handleShow}>
-        Tabela Cadastro Funcionarios
+        Tabela Cadastro Funcionários
       </Button>
      <Modal show={show} onHide={handleClose} size="xl">
         <Modal.Header closeButton>
-          <Modal.Title>Tabela Cadastro Funcionarios</Modal.Title>
+          <Modal.Title>Tabela Cadastro Funcionários</Modal.Title>
         </Modal.Header>
         <Modal.Body><TabelaCadastro/> </Modal.Body>
         <Modal.Footer>

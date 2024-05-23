@@ -430,3 +430,74 @@ router.get('/protected', verifyJWT, (req, res) => {
   res.status(200).send('This is a protected route.');
 });
 
+
+////////////////////////////contato///////////////////////////
+
+router.get('/contato', (req, res) => {
+  connection.query('SELECT * FROM contato', (err, results) => {
+    if (err) {
+      console.error('Erro ao buscar os registros:', err);
+      res.status(500).json({ error: 'Erro ao buscar os registros' });
+      return;
+    }
+    res.json(results);
+  });
+});
+
+// Rota para buscar um registro específico pelo id_funcionarios
+router.get('/contato/:IdContato', (req, res) => {
+  const { IdContato } = req.params;
+  connection.query('SELECT * FROM contato WHERE IdContato = ?', [IdContato], (err, results) => {
+    if (err) {
+      console.error('Erro ao buscar o registro:', err);
+      res.status(500).json({ error: 'Erro ao buscar o registro' });
+      return;
+    }
+    if (results.length === 0) {
+      res.status(404).json({ error: 'Registro não encontrado' });
+      return;
+    }
+    res.json(results[0]);
+  });
+});
+// Rota para criar um novo registro
+router.post('/contato', (req, res) => {
+  const { nome, email, cnpj } = req.body;
+  connection.query('INSERT INTO contato (nome, email, cnpj) VALUES (?, ?, ?)',
+    [nome, email, cnpj], (err, result) => {
+      if (err) {
+        console.error('Erro ao criar o registro:', err);
+        res.status(500).json({ error: 'Erro ao criar o registro' });
+        return;
+      }
+      res.status(201).json({ message: 'Registro criado com sucesso', IdContato: result.insertIdContato });
+    });
+});
+
+// Rota para atualizar um registro existente pelo id_funcionarios
+router.put('/contato/:IdContato', (req, res) => {
+  const { IdContato } = req.params;
+  const { nome, email, cnpj } = req.body;
+  connection.query('UPDATE contato SET nome = ?, email = ?, cnpj = ?, WHERE IdContato = ?',
+    [nome, email, cnpj, IdContato], (err, result) => {
+      if (err) {
+        console.error('Erro ao atualizar o registro:', err);
+        res.status(500).json({ error: 'Erro ao atualizar o registro' });
+        return;
+      }
+      res.json({ message: 'Registro atualizado com sucesso' });
+    });
+});
+
+// Rota para excluir um registro pelo id_funcionarios
+router.delete('/contato/:IdContato', (req, res) => {
+  const { IdContato } = req.params;
+  connection.query('DELETE FROM contato WHERE IdContato = ?', [IdContato], (err, result) => {
+    if (err) {
+      console.error('Erro ao excluir o registro:', err);
+      res.status(500).json({ error: 'Erro ao excluir o registro' });
+      return;
+    }
+    res.json({ message: 'Registro excluído com sucesso' });
+  });
+});

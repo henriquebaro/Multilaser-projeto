@@ -36,19 +36,19 @@ function OffcanvasExample() {
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                     className='paginasletra'
                   >
-                    <NavDropdown.Item href="#action3"> <Link to="/cadastro">Cadastro funcionarios</Link></NavDropdown.Item>
+                    <NavDropdown.Item href="#action3"> <Link to="/cadastro">Cadastro Funcionários</Link></NavDropdown.Item>
                     <NavDropdown.Item href="#action4">
-                      <Link to="/clientes">Cadastro clientes</Link>
+                      <Link to="/clientes">Cadastro Clientes</Link>
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action5">
-                      <Link to="/produtos">produtos</Link>
+                      <Link to="/produtos">Produtos</Link>
                     </NavDropdown.Item>
                     <NavDropdown.Item href="#action5">
-                      <Link to="/fornecedores">fornecedores</Link>
+                      <Link to="/fornecedores">Fornecedores</Link>
                     </NavDropdown.Item>
                     <NavDropdown.Item href="#action5">
-                      <Link to="/pedidos">pedidos</Link>
+                      <Link to="/pedidos">Pedidos</Link>
                     </NavDropdown.Item>
                   </NavDropdown>
                 </Nav>

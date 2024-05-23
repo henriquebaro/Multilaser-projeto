@@ -15,35 +15,35 @@ const Clientes = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
- 
-  
+
+
   return (
     <>
       <div>
-
+        <br />
         <center>
           <h2 className="h2">CADASTRE-SE</h2>
         </center>
-        
-     <ClienteForm/>
+        <br />
+        <ClienteForm />
 
-     <Button className="botaotabela" variant="primary" onClick={handleShow}>
-        Tabela Clientes
-      </Button>
-     <Modal show={show} onHide={handleClose} size="xl">
-        <Modal.Header closeButton>
-          <Modal.Title>Tabela Clientes</Modal.Title>
-        </Modal.Header>
-        <Modal.Body> <TabelaClientes/></Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-          Fechar
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Salvar Dados
-          </Button>
-        </Modal.Footer>
-      </Modal>
+        <Button className="botaotabela" variant="primary" onClick={handleShow}>
+          Tabela Clientes
+        </Button>
+        <Modal show={show} onHide={handleClose} size="xl">
+          <Modal.Header closeButton>
+            <Modal.Title>Tabela Clientes</Modal.Title>
+          </Modal.Header>
+          <Modal.Body> <TabelaClientes /></Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Fechar
+            </Button>
+            <Button variant="primary" onClick={handleClose}>
+              Salvar Dados
+            </Button>
+          </Modal.Footer>
+        </Modal>
 
 
       </div>

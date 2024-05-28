@@ -68,15 +68,15 @@ const CadastroForm = () => {
               <Row className='hori1'>
                 <Col md={3} className='colhori'>
                 <p className='legendacadas'>Nome</p>
-                <input type="text" name="nome"  value={formData.nome} onChange={handleChange} /></Col>
+                <input autocomplete="off" type="text" name="nome"  value={formData.nome} onChange={handleChange} /></Col>
 
                 <Col   md={3} >
                 <p className='legendacadas'>Email</p>
-                <input  type="email" name="email" value={formData.email} onChange={handleChange} /></Col>
+                <input autocomplete="off"  type="email" name="email" value={formData.email} onChange={handleChange} /></Col>
 
                 <Col  md={3} >
                 <p className='legendacadas'>CPF</p>
-                <input type="number" name="cpf"  value={formData.cpf} onChange={handleChange} /></Col>
+                <input autocomplete="off" type="number" name="cpf"  value={formData.cpf} onChange={handleChange} /></Col>
 
               </Row>
       
@@ -86,15 +86,15 @@ const CadastroForm = () => {
                <Row className='hori2'>
                <Col md={3} className='colhori'>
                <p className='legendacadas'>RG</p>
-               <input type="number" name="rg" value={formData.rg} onChange={handleChange} /></Col>
+               <input autocomplete="off" type="number" name="rg" value={formData.rg} onChange={handleChange} /></Col>
 
                <Col md={3} >
                <p className='legendacadas'>Telefone</p>
-               <input type="number" name="celular" value={formData.celular} onChange={handleChange} /></Col>
+               <input autocomplete="off" type="number" name="celular" value={formData.celular} onChange={handleChange} /></Col>
   
                <Col md={3} >
                <p className='legendacadas'>Cargo</p>
-               <input type="text" name="cargo" value={formData.cargo} onChange={handleChange} /></Col>
+               <input autocomplete="off" type="text" name="cargo" value={formData.cargo} onChange={handleChange} /></Col>
       
                
             
@@ -105,15 +105,15 @@ const CadastroForm = () => {
               <Row className='hori3'>
                <Col md={3} >
                <p className='legendacadas'>Departamento</p>
-               <input type="text" name="departamento" value={formData.departamento} onChange={handleChange} /></Col>
+               <input autocomplete="off" type="text" name="departamento" value={formData.departamento} onChange={handleChange} /></Col>
 
                <Col md={3} >
                <p className='legendacadas'>Senha</p>
-               <input type="password" name="senha" value={formData.senha} onChange={handleChange} /></Col>
+               <input autocomplete="off" type="password" name="senha" value={formData.senha} onChange={handleChange} /></Col>
 
                <Col md={3} >
                <p className='legendacadas'>CEP</p>
-                <input type="number" name="cep" value={formData.cep} onChange={handleChange} /></Col>
+                <input autocomplete="off" type="number" name="cep" value={formData.cep} onChange={handleChange} /></Col>
       
               
               </Row>
@@ -121,14 +121,14 @@ const CadastroForm = () => {
               <Row className='hori4'>
                 <Col  md={3} >
                 <p className='legendacadas'>Data de admissão</p>
-                <input className='dataad' type="date" name="data_admissao"  value={formData.data_admissao} onChange={handleChange} /></Col>
+                <input autocomplete="off" className='dataad' type="date" name="data_admissao"  value={formData.data_admissao} onChange={handleChange} /></Col>
                 
                 <Col md={3} >
                 <p className='legendacadas'>Data de nascimento </p>
-                <input className='datanasci' type="date" name="data_nascimento"  value={formData.data_nascimento} onChange={handleChange} /></Col>
+                <input autocomplete="off" className='datanasci' type="date" name="data_nascimento"  value={formData.data_nascimento} onChange={handleChange} /></Col>
 
                 <Col md={3} className='salvar'  >
-                <Button type="submit" onClick={handleReload} className='botao' variant="outline-light">Salvar</Button>{' '}</Col>
+                <Button autocomplete="off" type="submit" onClick={handleReload} className='botao' variant="outline-light">Salvar</Button>{' '}</Col>
                
                 
                 

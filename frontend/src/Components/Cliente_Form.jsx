@@ -58,34 +58,34 @@ const ClienteForm = () => {
         <Row className='hori1'>
       <Col md={3}>
         <p className='legendainput'>Nome</p>
-        <input type="text" name="nome"  value={formData.nome} onChange={handleChange} /></Col>
+        <input autocomplete="off" type="text" name="nome"  value={formData.nome} onChange={handleChange} /></Col>
 
       <Col md={3}>
         <p className='legendainput'>Email</p>
-        <input type="email" name="email" value={formData.email} onChange={handleChange} /></Col>
+        <input autocomplete="off" type="email" name="email" value={formData.email} onChange={handleChange} /></Col>
 
       <Col md={3}>
         <p className='legendainput'>CPF</p>
-        <input type="number" name="cpf"  value={formData.cpf} onChange={handleChange} /></Col>
+        <input autocomplete="off" type="number" name="cpf"  value={formData.cpf} onChange={handleChange} /></Col>
 
       <Col md={3} className='datadenasc'>
         <p className='legendainput'>Data de nascimento</p>
-        <input type="date" name="data_nascimento"  value={formData.data_nascimento} onChange={handleChange} /></Col>
+        <input autocomplete="off" type="date" name="data_nascimento"  value={formData.data_nascimento} onChange={handleChange} /></Col>
 
         </Row>
 
         <Row>
           <Col md={3}>
             <p className='legendainput'>CEP</p>
-            <input type="number" name="cep" value={formData.cep} onChange={handleChange} /></Col>
+            <input autocomplete="off" type="number" name="cep" value={formData.cep} onChange={handleChange} /></Col>
 
           <Col md={3}>
             <p className='legendainput'>Telefone</p>
-            <input type="number" name="celular"  value={formData.celular} onChange={handleChange} /></Col>
+            <input autocomplete="off" type="number" name="celular"  value={formData.celular} onChange={handleChange} /></Col>
 
           <Col md={3}>
             <p className='legendainput'>Senha</p>
-            <input type="password" name="senha"  value={formData.senha} onChange={handleChange} /></Col>
+            <input autocomplete="off" type="password" name="senha"  value={formData.senha} onChange={handleChange} /></Col>
 
           <Col><Button type="submit" onClick={handleReload} className='botao' variant="outline-light">Salvar</Button>{' '}</Col>
 

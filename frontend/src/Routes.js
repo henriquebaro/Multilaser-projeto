@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Home from './Pages/Home';
+
 import Contato from './Pages/Contato';
 import Cadastro from './Pages/Cadastro';
 import Fornecedores from './Pages/fornecedores';
@@ -15,14 +15,7 @@ const Rotas = () => {
   return (
     <Routes>
       <Route path="/" element={<Login />} />
-      <Route
-        path="/home"
-        element={
-        
-            <Home />
-         
-        }
-      />
+     
       <Route
         path="/contato"
         element={

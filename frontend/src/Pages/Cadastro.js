@@ -27,10 +27,6 @@ const Cadastro   = () => {
     </center>
     <br/>
       <CadastroForm />
-<<<<<<< HEAD
-=======
-    
->>>>>>> 0e7d93003d4659cc86a0873ec88f4fb830aadcd8
       <br/>
       <br/>
       <br/>

@@ -48,32 +48,33 @@ const Produtos_form = () => {
  <center>
    <Box className='box' boxShadow='2xl' p='6' rounded='xl' bg='white'>
         <form onSubmit={handleSubmit}>
-          <Container>
+        <Container>
             <Row className='hori1'>
             
             <Col md={4}>
             <p className='legenda'>Nome</p>
-            <input type="text" name="nomeProduto"  value={formData.nomeProduto} onChange={handleChange} />
+            <input autocomplete="off" type="text" name="nomeProduto"  value={formData.nomeProduto} onChange={handleChange} />
             </Col>
 
             <Col md={4}>
             <p className='legenda'>Quantidade</p>
-            <input type="number" name="quantidade"  value={formData.quantidade} onChange={handleChange} />
+            <input autocomplete="off" type="number" name="quantidade"  value={formData.quantidade} onChange={handleChange} />
             </Col>
             </Row>
 
             <Row className='hori2'>
               <Col md={4}>
               <p className='legenda'>Descrição</p>
-              <input type="text" name="descricao" value={formData.descricao} onChange={handleChange} />
+              <input autocomplete="off" type="text" name="descricao" value={formData.descricao} onChange={handleChange} />
               </Col>
 
               <Col md={4}>
               <p className='legenda'>Preço</p>
-              <input type="number" name="preco"  value={formData.preco} onChange={handleChange} />
+              <input autocomplete="off" type="number" name="preco"  value={formData.preco} onChange={handleChange} />
               </Col>
             </Row>
           </Container>
+        
         
         
      

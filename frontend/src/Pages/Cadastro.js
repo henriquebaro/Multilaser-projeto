@@ -23,11 +23,11 @@ const Cadastro   = () => {
       <CadastroForm />
 
 <Button className="botaotabela" variant="primary" onClick={handleShow}>
-        Tabela Cadastro Funcionários
+        Tabela Funcionários
       </Button>
      <Modal show={show} onHide={handleClose} size="xl">
         <Modal.Header closeButton>
-          <Modal.Title>Tabela Cadastro Funcionários</Modal.Title>
+          <Modal.Title>Tabela Funcionários</Modal.Title>
         </Modal.Header>
         <Modal.Body><TabelaCadastro/> </Modal.Body>
         <Modal.Footer>

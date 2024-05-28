@@ -54,17 +54,17 @@ const Fornecedor_form = () => {
           <Row>
             <Col md={4}>
             <p className='legendacadasforn'>Empresa</p>
-            <input type="text" name="nome_empresa"  value={formData.nome_empresa} onChange={handleChange} />
+            <input autocomplete="off" type="text" name="nome_empresa"  value={formData.nome_empresa} onChange={handleChange} />
             </Col>
 
             <Col md={4}>
             <p className='legendacadasforn'>Email</p>
-            <input type="email" name="email"  value={formData.email} onChange={handleChange} />
+            <input autocomplete="off" type="email" name="email"  value={formData.email} onChange={handleChange} />
             </Col>
 
             <Col md={4}>
             <p className='legendacadasforn'>CNPJ</p>
-            <input type="number" name="cnpj"  value={formData.cnpj} onChange={handleChange} />
+            <input autocomplete="off" type="number" name="cnpj"  value={formData.cnpj} onChange={handleChange} />
             </Col>
 
           </Row>
@@ -72,16 +72,16 @@ const Fornecedor_form = () => {
          <Row>
           <Col md={4} className='CEP'>
           <p className='legendacadasforn'>CEP</p>
-          <input  type="number" name="cep"  value={formData.cep} onChange={handleChange} />
+          <input autocomplete="off" type="number" name="cep"  value={formData.cep} onChange={handleChange} />
           </Col>
 
           <Col md={4}>
           <p className='legendacadasforn'>Telefone</p>
-          <input type="number" name="telefone" value={formData.telefone} onChange={handleChange} />
+          <input autocomplete="off" type="number" name="telefone" value={formData.telefone} onChange={handleChange} />
           </Col>
 
           <Col md={4} className='salvar'>
-          <Button type="submit" onClick={handleReload} className='fornbotao' variant="outline-light">Salvar</Button>{' '}
+          <Button autocomplete="off" type="submit" onClick={handleReload} className='fornbotao' variant="outline-light">Salvar</Button>{' '}
           </Col>
          </Row>
       </Container>

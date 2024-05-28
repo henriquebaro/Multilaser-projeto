@@ -8,7 +8,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import multilogosemfundo from '../Imagens/multilogosemfundo.png';
-
+import { CiLogout } from "react-icons/ci";
+import "../css/navbar.css"
 function OffcanvasExample() {
   return (
     <>
@@ -29,28 +30,21 @@ function OffcanvasExample() {
               </Offcanvas.Header>
               <Offcanvas.Body className='navdois'>
                 <Nav className="list">
-                  <Link to="/" className='linkhome'>Home</Link>
-                  <Link to="/contato" className='linkcontato'>Contato</Link>
-                  <NavDropdown
-                    title="Páginas"
-                    id={`offcanvasNavbarDropdown-expand-${expand}`}
-                    className='paginasletra'
-                  >
-                    <NavDropdown.Item href="#action3"> <Link to="/cadastro">Cadastro Funcionários</Link></NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">
-                      <Link to="/clientes">Cadastro Clientes</Link>
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action5">
-                      <Link to="/produtos">Produtos</Link>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action5">
-                      <Link to="/fornecedores">Fornecedores</Link>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action5">
-                      <Link to="/pedidos">Pedidos</Link>
-                    </NavDropdown.Item>
-                  </NavDropdown>
+           
+                    <Link className='link' to="/cadastro">Cadastro Funcionários</Link>
+                    
+                      <Link className='link' to="/clientes">Cadastro Clientes</Link>
+                   
+                   
+
+                      <Link className='link' to="/produtos">Produtos</Link>
+              
+                      <Link className='link' to="/fornecedores">Fornecedores</Link>
+                  
+                  
+                      <Link className='link'  to="/pedidos">Pedidos</Link>
+             
+                  <Link className='link' to="/"><CiLogout size={25} /></Link>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>

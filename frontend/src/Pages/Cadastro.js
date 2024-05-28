@@ -6,6 +6,12 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
 import "../css/tabelacadastrofunc.css";
+import Rodape from "../Components/Rodape";
+
+
+
+
+
 
 const Cadastro   = () => {
   const [show, setShow] = useState(false);
@@ -21,6 +27,13 @@ const Cadastro   = () => {
     </center>
     <br/>
       <CadastroForm />
+    
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <Rodape/>
 
 <Button className="botaotabela" variant="primary" onClick={handleShow}>
         Tabela Funcionários

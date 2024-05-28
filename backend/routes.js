@@ -375,41 +375,6 @@ router.post('/pedidos', async (req, res) => {
 ////////////////////////////////// LOGIN //////////////////////
 
 
-// router.post('/login', (req, res) => {
-//   const { cpf, nome } = req.body;
-
-//   // Criar uma nova conexão com o banco de dados
- 
-
-//   // Conectar ao banco de dados
-//   connection.connect((err) => {
-//     if (err) {
-//       console.error('Erro ao conectar ao banco de dados:', err);
-//       return res.status(500).json({ error: 'Erro interno do servidor' });
-//     }
-
-//     // Consulta para verificar se o usuário existe na tabela
-//     const query = `SELECT * FROM cadastro_funcionarios WHERE cpf = '${cpf}' AND nome = '${nome}'`;
-//     connection.query(query, (err, results) => {
-//       if (err) {
-//         console.error('Erro ao consultar o banco de dados:', err);
-//         connection.end(); // Fechar a conexão com o banco de dados em caso de erro
-//         return res.status(500).json({ error: 'Erro interno do servidor' });
-//       }
-
-//       if (results.length === 0) {
-//         connection.end(); // Fechar a conexão com o banco de dados se nenhum usuário for encontrado
-//         return res.status(401).json({ error: 'CPF ou nome inválido' });
-//       }
-
-//       // Usuário autenticado com sucesso
-//       res.status(200).json({ message: 'Login bem-sucedido' });
-
-//       // Fechar a conexão com o banco de dados após a conclusão da consulta
-//       connection.end();
-//     });
-//   });
-// });
 
 
 router.post('/login', (req, res) => {
@@ -504,3 +469,77 @@ router.delete('/contato/:IdContato', (req, res) => {
     res.json({ message: 'Registro excluído com sucesso' });
   });
 })
+////////////////// pedido fornecedor ///////////////////////////////
+router.post('/novopedido', (req, res) => {
+  const { id_fornecedor, telefone, valor_total, data_receber } = req.body;
+  const values = [id_fornecedor, telefone, valor_total, data_receber];
+
+  connection.query('INSERT INTO pedidos_enviados (id_fornecedor, telefone, valor_total, data_receber) VALUES (?, ?, ?, ?)', values, (err, result) => {
+    if (err) {
+      console.error('Erro ao criar o pedido:', err);
+      res.status(500).json({ error: 'Erro ao criar o pedido' });
+      return;
+    }
+    res.status(201).json({ message: 'Pedido criado com sucesso', id_enviados: result.insertId });
+  });
+});
+
+// Rota para obter os detalhes de um fornecedor específico
+router.get('/fornecedores/:id_fornecedor', (req, res) => {
+  const { id_fornecedor } = req.params;
+
+  connection.query('SELECT telefone FROM fornecedores WHERE id_fornecedor = ?', [id_fornecedor], (error, results) => {
+    if (error) {
+      console.error('Erro ao buscar telefone do fornecedor:', error);
+      res.status(500).json({ error: 'Erro ao buscar telefone do fornecedor' });
+      return;
+    }
+
+    if (results.length > 0) {
+      res.json(results[0]);
+    } else {
+      res.status(404).json({ error: 'Fornecedor não encontrado' });
+    }
+  });
+});
+
+// Rota para atualizar um pedido
+router.post('/pedidosUpdate/:id_fornecedor', (req, res) => {
+  const { id_fornecedor } = req.params;
+  const { telefone } = req.body;
+
+  connection.query('UPDATE pedidos_enviados SET telefone = telefone - ? WHERE id_fornecedor = ?', [telefone, id_fornecedor], (err, result) => {
+    if (err) {
+      console.error('Erro ao atualizar o pedido:', err);
+      res.status(500).json({ error: 'Erro ao atualizar o pedido' });
+      return;
+    }
+    res.json({ message: 'Pedido atualizado com sucesso' });
+  });
+});
+
+// Rota para obter todos os pedidos
+router.get('/novopedido', (req, res) => {
+  connection.query('SELECT * FROM pedidos_enviados', (error, results) => {
+    if (error) {
+      console.error('Erro ao buscar pedidos:', error);
+      res.status(500).json({ error: 'Erro ao buscar pedidos' });
+      return;
+    }
+    res.json(results);
+  });
+});
+
+// Rota para excluir um pedido
+router.delete('/novopedido/:id_enviados', (req, res) => {
+  const { id_enviados } = req.params;
+
+  connection.query('DELETE FROM pedidos_enviados WHERE id_enviados = ?', [id_enviados], (err, result) => {
+    if (err) {
+      console.error('Erro ao excluir o pedido:', err);
+      res.status(500).json({ error: 'Erro ao excluir o pedido' });
+      return;
+    }
+    res.json({ message: 'Pedido excluído com sucesso' });
+  });
+});

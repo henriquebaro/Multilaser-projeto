@@ -130,7 +130,7 @@ function Pedido(){
            <br/>
             <h1>Adicione um novo pedido</h1>
            <br/>
-            <Box className='box' boxShadow='2xl' p='6' rounded='xl' bg='white'>
+            <Box  boxShadow='2xl' p='6' rounded='xl' bg='white'>
           <Container>
             <Row>
               <Col md={4}><select className="select" name="id_cliente" id="id_cliente" onChange={handleClienteChange}>
@@ -169,24 +169,8 @@ function Pedido(){
           </Container>
          </Box>
           </center>
-          
-          <Button className="botaotabela" variant="primary" onClick={handleShow}>
-        Tabela dos pedidos
-      </Button>
-     <Modal show={show} onHide={handleClose} size="lg">
-        <Modal.Header closeButton>
-          <Modal.Title>Tabela Pedidos</Modal.Title>
-        </Modal.Header>
-        <Modal.Body> <Tabela_pedidos/> </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-          Fechar
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Salvar Dados
-          </Button>
-        </Modal.Footer>
-      </Modal>
+          <Tabela_pedidos/>
+
 
       <br/>
    <br/>

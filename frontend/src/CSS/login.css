@@ -1,0 +1,78 @@
+.pai-login {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+  
+}
+.colpai{
+    margin-bottom: 500px;
+
+}
+h5{
+    margin-top: 30px;
+    color: royalblue;
+}
+.caixa-login {
+    position: absolute;
+    margin-top: 30%;
+ 
+    z-index: 1; /* Este elemento ficará abaixo do elemento2 */
+}
+
+.imagem-login{
+    position: absolute;
+    ;
+   margin-top: 55%;
+
+    z-index: 2; /* Este elemento ficará acima do elemento1 */
+}
+.botao-login {
+    width: 100%;
+    padding: 0 !important;
+    background-color: rgb(255, 255, 255);
+    color: royalblue;
+    transition: color 0.3s ease;
+    height: 10%;
+    border-radius: 50px;
+
+}
+
+.botao-login:hover {
+    background-color: royalblue;
+    color: white;
+}
+
+.input-login{
+    padding: 10%;
+    width: 100%;        
+}
+.botao-show{
+    width: 100%;
+    padding: 0 !important;
+    background-color: rgb(255, 255, 255);
+    color: royalblue;
+    transition: color 0.3s ease;
+    height: 10%;
+    border-radius: 50px;    
+}
+.botao-show:hover {
+    background-color: royalblue;
+    color: white;
+}
+.pai-login .input{
+   border: 10px;
+}
+.botao-erro{
+    width: 20%;
+    padding: 0 !important;
+    background-color: rgb(255, 255, 255);
+    color: royalblue;
+    transition: color 0.3s ease;
+    height: 50%;
+    border-radius: 20px; 
+}
+.botao-erro:hover {
+    background-color: royalblue;
+    color: white;
+}

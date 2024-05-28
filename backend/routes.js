@@ -1,7 +1,8 @@
 const express = require('express');
 const connection = require('./db');
 const router = express.Router();
-
+const bodyParser = require('body-parser');
+const bcrypt = require('bcrypt');
 // Rota para listar todos os registros
 router.get('/cadastros', (req, res) => {
   connection.query('SELECT * FROM cadastro_funcionarios', (err, results) => {
@@ -34,7 +35,7 @@ router.get('/cadastros/:id_funcionarios', (req, res) => {
 // Rota para criar um novo registro
 router.post('/cadastros', (req, res) => {
   const { nome, email, cpf, rg, data_nascimento, cep, celular, cargo, departamento, data_admissao, senha } = req.body;
-  connection.query('INSERT INTO cadastro_funcionarios (nome, email, cpf,rg, data_nascimento,cep , celular, cargo, departamento, data_admissao) VALUES (?, ?, ?, ?, ?, ?,?,?,?,?)',
+  connection.query('INSERT INTO cadastro_funcionarios (nome, email, cpf,rg, data_nascimento,cep , celular, cargo, departamento, data_admissao, senha) VALUES (?, ?, ?, ?, ?,?,?,?,?,?,?)',
     [nome, email, cpf, rg, data_nascimento, cep, celular, cargo, departamento, data_admissao, senha], (err, result) => {
       if (err) {
         console.error('Erro ao criar o registro:', err);
@@ -49,7 +50,7 @@ router.post('/cadastros', (req, res) => {
 router.put('/cadastros/:id_funcionarios', (req, res) => {
   const { id_funcionarios } = req.params;
   const { nome, email, cpf, rg, data_nascimento, cep, celular, cargo, departamento, data_admissao, senha } = req.body;
-  connection.query('UPDATE cadastro_funcionarios SET nome = ?, email = ?, cpf = ?, rg = ?, data_nascimento = ?, cep = ?,celular = ?, cargo = ?, departamento = ?, data_admissao = ?, WHERE id_funcionarios = ?',
+  connection.query('UPDATE cadastro_funcionarios SET nome = ?, email = ?, cpf = ?, rg = ?, data_nascimento = ?, cep = ?,celular = ?, cargo = ?, departamento = ?, data_admissao = ?, senha = WHERE id_funcionarios = ?',
     [nome, email, cpf, rg, data_nascimento, cep, celular, cargo, departamento, data_admissao, senha, id_funcionarios], (err, result) => {
       if (err) {
         console.error('Erro ao atualizar o registro:', err);
@@ -371,6 +372,67 @@ router.post('/pedidos', async (req, res) => {
     res.status(500).json({ error: 'Erro ao criar o pedido' });
   }
 });
+////////////////////////////////// LOGIN //////////////////////
+
+
+// router.post('/login', (req, res) => {
+//   const { cpf, nome } = req.body;
+
+//   // Criar uma nova conexão com o banco de dados
+ 
+
+//   // Conectar ao banco de dados
+//   connection.connect((err) => {
+//     if (err) {
+//       console.error('Erro ao conectar ao banco de dados:', err);
+//       return res.status(500).json({ error: 'Erro interno do servidor' });
+//     }
+
+//     // Consulta para verificar se o usuário existe na tabela
+//     const query = `SELECT * FROM cadastro_funcionarios WHERE cpf = '${cpf}' AND nome = '${nome}'`;
+//     connection.query(query, (err, results) => {
+//       if (err) {
+//         console.error('Erro ao consultar o banco de dados:', err);
+//         connection.end(); // Fechar a conexão com o banco de dados em caso de erro
+//         return res.status(500).json({ error: 'Erro interno do servidor' });
+//       }
+
+//       if (results.length === 0) {
+//         connection.end(); // Fechar a conexão com o banco de dados se nenhum usuário for encontrado
+//         return res.status(401).json({ error: 'CPF ou nome inválido' });
+//       }
+
+//       // Usuário autenticado com sucesso
+//       res.status(200).json({ message: 'Login bem-sucedido' });
+
+//       // Fechar a conexão com o banco de dados após a conclusão da consulta
+//       connection.end();
+//     });
+//   });
+// });
+
+
+router.post('/login', (req, res) => {
+  const { cpf, senha } = req.body;
+
+  // Consulta para verificar se o usuário existe na tabela
+  const query = `SELECT * FROM cadastro_funcionarios WHERE cpf = ? AND senha = ?`;
+
+  // Execute a consulta usando o pool de conexões
+  connection.query(query, [cpf, senha], (err, results) => {
+    if (err) {
+      console.error('Erro ao consultar o banco de dados:', err);
+      return res.status(500).json({ error: 'Erro interno do servidor' });
+    }
+
+    if (results.length === 0) {
+      return res.status(401).json({ error: 'CPF ou senha inválido' });
+    }
+
+    // Usuário autenticado com sucesso
+    res.status(200).json({ message: 'Login bem-sucedido' });
+  });
+});
 
 ////////////////////////////contato///////////////////////////
 
@@ -441,4 +503,4 @@ router.delete('/contato/:IdContato', (req, res) => {
     }
     res.json({ message: 'Registro excluído com sucesso' });
   });
-});
+})

@@ -22,12 +22,15 @@ const Cadastro   = () => {
   return (
     <>
     <br/>
-    
     <center>
       <h1>Cadastro dos funcionários</h1>
     </center>
     <br/>
       <CadastroForm />
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 0e7d93003d4659cc86a0873ec88f4fb830aadcd8
       <br/>
       <br/>
       <br/>
@@ -36,11 +39,11 @@ const Cadastro   = () => {
       <Rodape/>
 
 <Button className="botaotabela" variant="primary" onClick={handleShow}>
-        Tabela Cadastro Funcionarios
+        Tabela Funcionários
       </Button>
      <Modal show={show} onHide={handleClose} size="xl">
         <Modal.Header closeButton>
-          <Modal.Title>Tabela Cadastro Funcionarios</Modal.Title>
+          <Modal.Title>Tabela Funcionários</Modal.Title>
         </Modal.Header>
         <Modal.Body><TabelaCadastro/> </Modal.Body>
         <Modal.Footer>

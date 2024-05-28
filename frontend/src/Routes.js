@@ -15,7 +15,11 @@ const Rotas = () => {
   return (
     <Routes>
       <Route path="/" element={<Login />} />
+<<<<<<< HEAD
     
+=======
+      
+>>>>>>> f968d3e6f609da4dad6532864190f9c125cd363e
       <Route
         path="/contato"
         element={

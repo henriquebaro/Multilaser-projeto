@@ -76,8 +76,8 @@ const TabelaCadastro = () => {
                 <Th>Cargo</Th>
                 <Th>Departamento</Th>
                 <Th>Data de admissão</Th>
-                <Th>Ação</Th>
                 <Th>Senha</Th>
+      
       </Tr>
     </Thead>
     <Tbody>

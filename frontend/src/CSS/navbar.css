@@ -11,3 +11,15 @@
 .multitext {
     color: royalblue;
 }
+.list .link{
+    text-decoration: none;
+    color: inherit; 
+    transition: color 0.3s ease; 
+    padding: 3px;
+  }
+  
+.list .link:hover {
+     color: royalblue; 
+  }
+
+  

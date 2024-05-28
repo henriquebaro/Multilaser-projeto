@@ -1,20 +1,18 @@
 // Home
 import React from "react";
-import { Button, ButtonGroup } from '@chakra-ui/react'
- import Rodape from '../Components/Rodape.jsx'
+import { Button, ThemeProvider, createTheme } from '@mui/material';
+import Rodape from '../Components/Rodape.jsx';
 
-import { AiFillAccountBook } from "react-icons/ai";
+// Define o tema do Material-UI
+const theme = createTheme();
+
 function Home(){
   return (
-    <>
-     <Button colorScheme='blue'>Button</Button>
-     
-  
-    
-
-     <Rodape/>
-    </>
+    <ThemeProvider theme={theme}>
+      <Button>Hello World</Button>
+      <Rodape />
+    </ThemeProvider>
   );
-};
+}
 
 export default Home;

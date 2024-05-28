@@ -42,7 +42,19 @@ const TabelaClientes = () => {
       console.error("Erro ao excluir usuário:", error);
     }
   };
-
+  function converterData(dataMySQL) {
+    // Divide a data MySQL em partes
+    var partesHora = dataMySQL.split('T');
+  
+    var partesData = partesHora[0].split('-');
+  
+  
+    // Formata a data no padrão brasileiro
+    var dataFormatada = partesData[2] + '/' + partesData[1] + '/' + partesData[0];
+  
+    return dataFormatada;
+  }
+  
   return (
     <>
       <TableContainer>
@@ -67,7 +79,7 @@ const TabelaClientes = () => {
                     <Td>{cadastro.nome}</Td>
                     <Td>{cadastro.email}</Td>
                     <Td>{cadastro.cpf}</Td>
-                    <Td>{cadastro.data_nascimento}</Td>
+                    <Td>{converterData(cadastro.data_nascimento)}</Td>
                     <Td>{cadastro.cep}</Td>
                     <Td>{cadastro.celular}</Td>
 

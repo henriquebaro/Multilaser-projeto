@@ -9,69 +9,60 @@ import Clientes from './Pages/Clientes';
 import Pedidos from './Pages/pedidos';
 import Login from './Components/Login';
 
-const PrivateRoute = ({ children }) => {
-  const auth = localStorage.getItem('token');
-  return auth ? children : <Navigate to="/login" />;
-};
+
 
 const Rotas = () => {
   return (
     <Routes>
-      <Route path="/login" element={<Login />} />
+      <Route path="/" element={<Login />} />
       <Route
         path="/home"
         element={
-          <PrivateRoute>
+        
             <Home />
-          </PrivateRoute>
+         
         }
       />
       <Route
         path="/contato"
         element={
-          <PrivateRoute>
+         
             <Contato />
-          </PrivateRoute>
+         
         }
       />
       <Route
         path="/cadastro"
         element={
-          <PrivateRoute>
+         
             <Cadastro />
-          </PrivateRoute>
+         
         }
       />
       <Route
         path="/fornecedores"
         element={
-          <PrivateRoute>
+         
             <Fornecedores />
-          </PrivateRoute>
+         
         }
       />
       <Route
-        path="/produtos"
-        element={
-          <PrivateRoute>
-            <Produto />
-          </PrivateRoute>
-        }
-      />
+        path="/produtos"element={ <Produto /> }/>
       <Route
         path="/clientes"
         element={
-          <PrivateRoute>
+         
             <Clientes />
-          </PrivateRoute>
+         
         }
       />
       <Route
         path="/pedidos"
         element={
-          <PrivateRoute>
+         
             <Pedidos />
-          </PrivateRoute>
+         
         }
       />
     </Routes>

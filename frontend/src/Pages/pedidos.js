@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-// import Pedidos_form from '../Components/Pedidos_form';
+import Pedidos_form from '../Components/Pedidos_form';
 import Tabela_pedidos from '../Components/Pedidos_tabela';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -9,11 +9,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import "../css/formpedidos.css";
-<<<<<<< HEAD
 import "../css/tabelapedidos.css";
-=======
 import Rodape from "../Components/Rodape";
->>>>>>> 3ac0f3a37a592e5a712f62c44ffe7333d77b446f
 
 function Pedidos(){
     const [show, setShow] = useState(false);

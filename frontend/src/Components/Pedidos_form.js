@@ -161,8 +161,8 @@ function Pedido(){
          <br/>
          <center>
                     <Row>
-            <Col md={6}><div><Button variant="light">Valor Total: R$ {valorTotal.toFixed(2)}</Button></div></Col>
-            <Col md={6}><Button variant="outline-light" className='botao'type="submit" onClick={handleAdicionarPedido}>Adicionar Pedido</Button></Col>
+            <Col md={6}><div><button variant="light">Valor Total: R$ {valorTotal.toFixed(2)}</button></div></Col>
+            <Col md={6}><button  variant="outline-light" className='botao_pedido'type="submit" onClick={handleAdicionarPedido}>Adicionar Pedido</button></Col>
           </Row>
          </center>
 

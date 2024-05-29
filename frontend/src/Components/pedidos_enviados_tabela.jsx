@@ -48,7 +48,18 @@ function TabelaPedidosEnviados() {
       console.error("Erro ao excluir pedido:", error);
     }
   };
-
+  function converterData(dataMySQL) {
+    // Divide a data MySQL em partes
+    var partesHora = dataMySQL.split('T');
+  
+    var partesData = partesHora[0].split('-');
+  
+  
+    // Formata a data no padrão brasileiro
+    var dataFormatada = partesData[2] + '/' + partesData[1] + '/' + partesData[0];
+  
+    return dataFormatada;
+  }
   return (
     <TableContainer>
       <Table variant='simple' colorScheme='teal'>
@@ -67,10 +78,10 @@ function TabelaPedidosEnviados() {
           {pedidosEnviados.map((pedido) => (
             <Tr key={pedido.id_enviados}>
               <Td>{pedido.id_enviados}</Td>
-              <Td>{pedido.id_fornecedor}</Td>
-          <Td>{fornecedores[pedido.id_fornecedor]?.telefone || '-'}</Td>
-              <Td>{pedido.valor_total}</Td>
-              <Td>{pedido.data_receber}</Td>
+              <Td>{fornecedores[pedido.id_fornecedor]?.nome_empresa || '-'}</Td>
+              <Td>{fornecedores[pedido.id_fornecedor]?.telefone || '-'}</Td>
+              <Td>R${pedido.valor_total}</Td>
+              <Td>{converterData(pedido.data_receber)}</Td>
               <Td>
                 <Button onClick={() => handleExcluirPedidoEnviado(pedido.id_enviados)}>Excluir</Button>
               </Td>

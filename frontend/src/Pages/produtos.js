@@ -6,7 +6,9 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import "../css/tabelaprodutos.css";
 import Rodape from "../Components/Rodape";
-
+import Container from 'react-bootstrap/esm/Container';
+import Col from 'react-bootstrap/esm/Col';
+import Row from "react-bootstrap/esm/Row";
 
 function Produto() {
   const [show, setShow] = useState(false);
@@ -15,7 +17,23 @@ function Produto() {
   const handleShow = () => setShow(true);
   return (
     <>
-      <Modal show={show} onHide={handleClose}>
+    <Container>
+      <Row>
+        <Col>
+        </Col>
+        <Col><center>
+        <br/>
+        <h1 className="h1produtos">Adicione os produtos</h1>
+      </center> 
+        <Produtos_form/> 
+        </Col>
+        <Col>
+        </Col>
+      </Row>
+<Row>
+<Col></Col>
+ <Col></Col> 
+ <Col>  <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Tabela Produtos</Modal.Title>
         </Modal.Header>
@@ -29,22 +47,16 @@ function Produto() {
           </Button>
         </Modal.Footer>
       </Modal>
-      <center>
-        <br/>
-        <h1 className="h1produtos">Adicione os produtos</h1>
-      </center>
-       
 
-     <Produtos_form/>
      <Button className="botaotabela" variant="primary" onClick={handleShow}>
         Tabela Produtos
-      </Button>
-   <br/>
-   <br/>
-   <br/>
-   <br/>
-   <br/>
-   <Rodape/>
+      </Button> </Col>
+</Row>
+    </Container>
+      
+    <br/><br/><br/><br/>
+  
+   <Rodape/>  
     </>
   );
 }

@@ -6,6 +6,12 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import '../css/fornecedortabela.css';
+import Rodape from "../Components/Rodape";
+import Container from 'react-bootstrap/esm/Container';
+import Col from 'react-bootstrap/esm/Col';
+import Row from "react-bootstrap/esm/Row";
+
+
 
 
 const Fornecedores = () => {
@@ -15,17 +21,18 @@ const Fornecedores = () => {
   const handleShow = () => setShow(true);
   return (
     <>
-
-      <div>
-        <center>
+<Container>
+  <Row>
+    <Col></Col><Col> <center>
           <br/>
           <h1>Fornecedores </h1>
           <br/>
         </center>
         
-    <Fornecedor_form/>
-
-    <Modal show={show} onHide={handleClose} size="lg">
+    <Fornecedor_form/></Col><Col></Col>
+  </Row>
+  <Row>
+    <Col></Col><Col></Col><Col> <Modal show={show} onHide={handleClose} size="lg">
         <Modal.Header closeButton>
           <Modal.Title>Tabela Fornecedores</Modal.Title>
         </Modal.Header>
@@ -34,16 +41,20 @@ const Fornecedores = () => {
           <Button variant="secondary" onClick={handleClose}>
           Fechar
           </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Salvar Dados
-          </Button>
+          
         </Modal.Footer>
       </Modal>
     <Button className="botaotabela" variant="primary" onClick={handleShow}>
         Tabela Fornecedores
-      </Button>
+      </Button></Col>
+  </Row>
+</Container>
+<br/><br/><br/><br/><br/><br/><br/>
+       
 
-      </div>
+   
+
+        <Rodape/>
     </>
   );
 };

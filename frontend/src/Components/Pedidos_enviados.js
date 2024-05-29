@@ -16,41 +16,52 @@ function Pedidos_enviado() {
     const [telefone, setTelefone] = useState('');
     const [valorTotal, setValorTotal] = useState('');
     const [dataReceber, setDataReceber] = useState('');
-    const [nomeEmpresa, setNomeEmpresa] = useState('');
+
     const handleClienteChange = async (event) => {
         const id_fornecedor = event.target.value;
-        console.log("id_fornecedor"+id_fornecedor)
+        console.log("id_fornecedor" + id_fornecedor);
         setFornecedorId(id_fornecedor);
-
+    
         if (id_fornecedor) {
             try {
                 const response = await axios.get(`http://localhost:3001/fornecedores/${id_fornecedor}`);
-                setTelefone(response.data.telefone);
+                const telefone = response.data.telefone;
+                if (telefone) {
+                    setTelefone(telefone);
+                } else {
+                    setTelefone('0'); // Define um valor padrão, caso o telefone seja nulo ou indefinido
+                }
             } catch (error) {
                 console.error('Erro ao buscar telefone do fornecedor:', error);
+                setTelefone('0'); // Define um valor padrão em caso de erro
             }
         } else {
-            setTelefone('');
+            setTelefone('0'); // Define um valor padrão quando nenhum fornecedor é selecionado
         }
     };
-
     const handleAdicionarPedido = async () => {
+        if (!id_fornecedor || !telefone || !valorTotal || !dataReceber) {
+            alert('Por favor, preencha todos os campos obrigatórios.');
+            return;
+        }
+    
         try {
             const formData = {
-                id_fornecedor: id_fornecedor,
+                id_fornecedor,
                 telefone,
                 valor_total: valorTotal,
                 data_receber: dataReceber,
             };
             console.log(formData);
             await axios.post('http://localhost:3001/novopedido', formData);
-            // window.location.reload();
             alert('Pedido adicionado com sucesso');
         } catch (error) {
             console.error('Erro ao adicionar pedido:', error);
             alert('Erro ao adicionar pedido');
         }
+        window.location.reload();
     };
+    
 
     useEffect(() => {
         const fetchData = async () => {
@@ -70,32 +81,12 @@ function Pedidos_enviado() {
 
         fetchData();
     }, []);
-    const alteraCliente = async (event) => {
-        const nome_empresa = event.target.value;
-        setNomeEmpresa(nome_empresa);
-        console.log("nome_empresa"+nome_empresa)
 
-        if (nome_empresa) {
-            try {
-                const response = await axios.get(`http://localhost:3001/fornecedores?nome_empresa=${nome_empresa}`);
-                if (response.data.length > 0) {
-                    setTelefone(response.data[0].telefone);
-                    setFornecedor(nome_empresa);
-                } else {
-                    setTelefone('');
-                }
-            } catch (error) {
-                console.error('Erro ao buscar telefone do fornecedor:', error);
-            }
-        } else {
-            setTelefone('');
-        }
-    };
     return (
         <>
             <center>
                 <br />
-                <h1>Adicione um novo pedido</h1>
+                <h1>Adicione um pedido efetuado</h1>
                 <br />
                 <Box boxShadow='2xl' p='6' rounded='xl' bg='white'>
                     <Container>
@@ -108,14 +99,7 @@ function Pedidos_enviado() {
                                     ))}
                                 </select>
                             </Col>
-                            <Col md={4}>
-                                <input
-                                    type="text"
-                                    placeholder="Telefone"
-                                    value={telefone}
-                                    readOnly
-                                />
-                            </Col>
+                            
                             <Col md={4}>
                                 <input
                                     type="text"
@@ -125,9 +109,11 @@ function Pedidos_enviado() {
                                 />
                             </Col>
                             <Col md={4}>
-                                <input
+                             <label>data de entrega</label>
+                             <br></br>
+                               <input
                                     type="date"
-                                    placeholder="Data Receber"
+                                   
                                     value={dataReceber}
                                     onChange={(e) => setDataReceber(e.target.value)}
                                 />
@@ -137,8 +123,15 @@ function Pedidos_enviado() {
                         <center>
                             <Row>
                                 <Col md={6}>
-                                    <Button variant="outline-light" className='botao' type="submit" onClick={handleAdicionarPedido}>Adicionar Pedido</Button>
-                                </Col>
+                                    <button variant="outline-light" className='botao_pedido ' type="submit" onClick={handleAdicionarPedido}>Adicionar Pedido</button>
+                                </Col><Col className="telefone" md={4}>
+                                <input
+                                    type="text"
+                                    placeholder="Telefone"
+                                    value={telefone}
+                                    readOnly
+                                />
+                            </Col>
                             </Row>
                         </center>
                     </Container>

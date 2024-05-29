@@ -7,6 +7,10 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
 import '../css/navbar.css'
+import Container from 'react-bootstrap/esm/Container';
+import Col from 'react-bootstrap/esm/Col';
+import Row from "react-bootstrap/esm/Row";
+import Rodape from "../Components/Rodape";
 
 
 const Clientes = () => {
@@ -21,13 +25,18 @@ const Clientes = () => {
     <>
       <div>
         <br />
-        <center>
+        
+
+        
+        <Container>
+    <Row>
+    <Col></Col> <Col><center>
           <h2 className="h2">CADASTRE-SE</h2>
         </center>
         <br />
-        <ClienteForm />
-
-        <Button className="botaotabela" variant="primary" onClick={handleShow}>
+        <ClienteForm /></Col> <Col></Col>
+    </Row>
+    <Row> <Col></Col> <Col></Col> <Col><Button className="botaotabela" variant="primary" onClick={handleShow}>
           Tabela Clientes
         </Button>
         <Modal show={show} onHide={handleClose} size="xl">
@@ -43,8 +52,10 @@ const Clientes = () => {
               Salvar Dados
             </Button>
           </Modal.Footer>
-        </Modal>
-
+        </Modal></Col></Row>
+   </Container>
+   <br/><br/><br/><br/><br/><br/><br/>
+     <Rodape/>
 
       </div>
     </>

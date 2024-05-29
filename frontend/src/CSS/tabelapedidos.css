@@ -17,11 +17,25 @@ thead th {
     background-color: royalblue;
 }
 
-.botaotabela {
-    background-color: royalblue;
-    position: fixed;
-    bottom: 20px; /* Distância do fundo da tela */
-    right: 20px; /* Distância da direita da tela */
+
+
+.telefone{display: none ;}
+
+.botao_pedido {
+width: 30%;
+height: 100%;
+    padding: 0 !important;
+    background-color: rgb(255, 255, 255);
+    color: royalblue;
+    transition: color 0.3s ease;
+    border-radius: 10px;
+
 }
 
-
+.botao_pedido:hover {
+    background-color: royalblue;
+    color: white;
+}
+label{
+    color: gray;
+}

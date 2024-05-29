@@ -17,10 +17,4 @@ table {
         background-color: royalblue;
     }
     
-    .botaotabela {
-        background-color: royalblue;
-        position: fixed;
-        bottom: 20px; /* Distância do fundo da tela */
-        right: 20px; /* Distância da direita da tela */
-    }
     

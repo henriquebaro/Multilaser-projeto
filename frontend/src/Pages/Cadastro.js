@@ -7,6 +7,9 @@ import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
 import "../css/tabelacadastrofunc.css";
 import Rodape from "../Components/Rodape";
+import Container from 'react-bootstrap/esm/Container';
+import Col from 'react-bootstrap/esm/Col';
+import Row from "react-bootstrap/esm/Row";
 
 
 
@@ -21,20 +24,22 @@ const Cadastro   = () => {
 
   return (
     <>
-    <br/>
+    <Container>
+      <Row>
+        <Col></Col>
+        <Col> <br/>
     <center>
       <h1>Cadastro dos funcionários</h1>
     </center>
     <br/>
-      <CadastroForm />
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <Rodape/>
-
-<Button className="botaotabela" variant="primary" onClick={handleShow}>
+      <CadastroForm /></Col>
+      <Col></Col>
+      </Row>
+      <Row>
+      <Col></Col>
+        
+        <Col></Col>
+      <Col><Button  className="botaotabela" variant="primary" onClick={handleShow}>
         Tabela Funcionários
       </Button>
      <Modal show={show} onHide={handleClose} size="xl">
@@ -50,8 +55,13 @@ const Cadastro   = () => {
             Salvar Dados
           </Button>
         </Modal.Footer>
-      </Modal>
-    
+      </Modal></Col>
+      </Row>
+    </Container>
+    <br/><br/><br/><br/><br/><br/><br/>
+
+
+    <Rodape/>
     </>
   );
 };

@@ -8,7 +8,7 @@ import Rodape from "../Components/Rodape.jsx"
 function Pedidos (){
   return(
     <>
-    <Container>
+    <Container >
       <Row>
         <Col>
     <Pedido/>
